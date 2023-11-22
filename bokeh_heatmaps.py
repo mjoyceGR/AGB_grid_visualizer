@@ -41,15 +41,26 @@ from bokeh.models import Div, HoverTool, CustomJS, ColumnDataSource
 
 import argparse
 
-parser = argparse.ArgumentParser(description='specify best fits file')
-parser.add_argument('fitfile', help='specify best fits file (e.g. "all_best_fits_O1_withmass.dat")', type=str)
+parser = argparse.ArgumentParser(description='specify fit file and statistic to view')
+parser.add_argument('fit_file_name', help='specify best fits file (e.g. "all_best_fits_FM_withmass.dat"\n'+\
+									'                             "all_best_fits_O1_withmass.dat"\n'+\
+									'                             "STRICT-all_best_fits_FM.dat"\n'+\
+									'                             "STRICT-all_best_fits_O1.dat"'									
+									, type=str)
+parser.add_argument('use_mixed_statistic', help='If false, use period only (recommended). '+\
+	                                            'If true, use P+LTR (not available with STRICT domain files). ', type=bool)
 args = parser.parse_args()
 cmdLine=True
 
 #######################################
 
 #fit_files = ['all_best_fits_O1_withmass.dat','all_best_fits_FM_withmass.dat','STRICT-all_best_fits_O1.dat','STRICT-all_best_fits_FM.dat']
-fit_file = '../'+fitfile  #all_best_fits_O1_withmass.dat'
+fit_file = '../'+args.fit_file_name  #all_best_fits_O1_withmass.dat'
+
+if 'STRICT' in fit_file:
+	use_mixed_statistic = False
+else:
+	use_mixed_statistic = args.use_mixed_statistic
 
 which_P = fit_file.split('best_fits_')[1].split('_withmass.dat')[0]
 
@@ -81,7 +92,6 @@ z_values=np.array(list(FeH_dict.keys()))
 #
 #######################################################
 all_models = glob.glob('../LOGS/history*drag-on_seismic_p3.data')
-
 
 missing_m = []
 missing_z = []
@@ -158,8 +168,15 @@ zz = np.array(zz)
 local_best_fits = {}
 for i in range(len(masses)):
 	these_pulses = np.where( (masses[i] == masses) & (zs[i]==zs) )[0]
-	local_best_fit = P_wrmse[these_pulses].min() 
+
+	if use_mixed_statistic:
+		local_best_fit = all_wrmse[these_pulses].min() 
+	else:
+		local_best_fit = P_wrmse[these_pulses].min() 
+		
 	local_best_fits[(masses[i], FeH[i])]=local_best_fit
+
+
 
 uniq_masses = []
 uniq_FeH = []

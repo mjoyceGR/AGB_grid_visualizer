@@ -32,12 +32,13 @@ import mesa_reader as mr
 
 import pandas as pd
 import bokeh
+from bokeh.events import ButtonClick
 from bokeh.models import ColumnDataSource
 from bokeh.plotting import figure, show, output_file 
 from bokeh.models import HoverTool
 from bokeh.io import show
 from bokeh.layouts import row, column
-from bokeh.models import Div, HoverTool, CustomJS, ColumnDataSource
+from bokeh.models import Div, HoverTool, CustomJS, ColumnDataSource, Button
 
 import argparse
 
@@ -47,8 +48,8 @@ parser.add_argument('fit_file_name', help='specify best fits file (e.g. "all_bes
 									'                             "STRICT-all_best_fits_FM.dat"\n'+\
 									'                             "STRICT-all_best_fits_O1.dat"'									
 									, type=str)
-parser.add_argument('use_mixed_statistic', help='If false, use period only (recommended). '+\
-	                                            'If true, use P+LTR (not available with STRICT domain files). ', type=bool)
+parser.add_argument('use_mixed_statistic', help='If n, use period only (recommended). '+\
+	                                            'If y, use P+LTR (not available with STRICT domain files). ', type=str)
 args = parser.parse_args()
 cmdLine=True
 
@@ -60,7 +61,10 @@ fit_file = '../'+args.fit_file_name  #all_best_fits_O1_withmass.dat'
 if 'STRICT' in fit_file:
 	use_mixed_statistic = False
 else:
-	use_mixed_statistic = args.use_mixed_statistic
+	if args.use_mixed_statistic == 'y':
+		use_mixed_statistic = True
+	else:
+		use_mixed_statistic = False
 
 which_P = fit_file.split('best_fits_')[1].split('_withmass.dat')[0]
 
@@ -211,7 +215,9 @@ for cc in colors_rgba:
 #              https://github.com/mjoyceGR/AGB_grid_visualizer/blob/main/associated_pulse_spectra/Pvt_m0.80_FeH-0.530.png
 #file_header = 'https://github.com/mjoyceGR/AGB_grid_visualizer/blob/main/'
 #file_header = '/home/mpj004/meridithjoyce.com/images/AGB_grid/'
-file_header = 'https://meridithjoyce.com/images/AGB_grid/'
+
+file_header_Nov9 = 'https://meridithjoyce.com/images/AGB_grid/Nov9_2023/'
+file_header      = 'https://meridithjoyce.com/images/AGB_grid/Nov28_2023/'
 
 Z_dict   = mfl.get_Z_dict()
 FeH_dict = mfl.get_FeH_dict()
@@ -225,22 +231,48 @@ FeH_dict = mfl.get_FeH_dict()
 png_masses = []
 png_FeH=[]
 png_Z = []
+pngs_Nov9 = []
 pngs = []
-for f in glob.glob('associated_pulse_spectra/*.png'):
+
+png_data_urls = []
+
+#png_ages=[]
+for f in glob.glob('../associated_pulse_spectra/*.png'):
 	#Pvt_m1.00_FeH-1.200.png
-	png_masses.append( float(f.split('Pvt_m')[1].split('_FeH')[0]) )
+
+	#try:
+	pngs_Nov9.append(file_header_Nov9 + f.split('../associated_pulse_spectra/')[1] )
+	pngs.append(     file_header + f.split('../associated_pulse_spectra/')[1] )
+
+	mass_val = float(f.split('Pvt_m')[1].split('_FeH')[0])
+
+	png_masses.append( mass_val )
 	FeH = float( f.split('FeH')[1].split('.png')[0] )
-	png_FeH.append( FeH )
-	png_Z.append( Z_dict[float(FeH)] )  ## Z value correspond to floating point FeH key
-	pngs.append(file_header + f.split('associated_pulse_spectra/')[1])
+	png_FeH.append(FeH)
+
+	z_val =  Z_dict[float(FeH)]
+
+	png_Z.append(z_val)  ## Z value correspond to floating point FeH key
+
+	## precede with "LOGS/" for local access
+	hist_file_name = 'history_m'+"%.2f"%float(mass_val)+'_z'+"%.4f"%float(z_val)+'_eta0.01_drag-on_seismic_p3.data' 
+	hist_url = 'https://meridithjoyce.com/pulse_data/'+hist_file_name
+
+	#print(hist_url)
+
+	png_data_urls.append(hist_url)
+
 
 
 image_dict = {
-		      'png_masses' : png_masses,
-		      'png_FeH'    : png_FeH,
-		      'png_Z'      : png_Z,
-		      'pngs' 	   : pngs
+		      'png_masses'    : png_masses,
+		      'png_FeH'       : png_FeH,
+		      'png_Z'         : png_Z,
+		      'pngs' 	      : pngs,
+		      'pngs_Nov9' 	  : pngs_Nov9,
+		      'png_data_urls' : png_data_urls
               }
+#		      'png_ages'   : png_ages
 image_df = pd.DataFrame(data=image_dict)
 ds = ColumnDataSource(data=image_df)
 ht = HoverTool()
@@ -261,29 +293,37 @@ ht.callback = CustomJS(args=dict(div=div, ds=ds), code="""
     if (indices.length >= 0) {
         div.text = 
                 `<img
-                src="${ds.data['pngs'][indices[0]]}" height="400" alt="no pulse spectrum available"
+                src="${ds.data['pngs'][indices[0]]}" height="200" alt="no pulse spectrum available"
                 style="float: left; margin: 0px 15px 15px 0px; image-rendering: crisp-edges;"
                 border="2"
-                ></img>`;
+                ></img>
+				<img
+                src="${ds.data['pngs_Nov9'][indices[0]]}" height="200" alt="no pulse spectrum available"
+                style="float: left; margin: 0px 15px 15px 0px; image-rendering: crisp-edges;"
+                border="2"
+                ></img>
+                `;
+
     }
 """)
 
-######################################################################################
+
 
 
 ## my own defintiion of hover is at the top of this script
 #TOOLS="hover,crosshair,pan,wheel_zoom,zoom_in,zoom_out,box_zoom,undo,redo,reset,"   
-p = figure(tools=[ht,"crosshair","pan","wheel_zoom","zoom_in","zoom_out","box_zoom","undo","redo,reset"],\
-           toolbar_location="above", width=600, height=400)
+p = figure(tools=[ht,"crosshair","pan","wheel_zoom","zoom_in","zoom_out","box_zoom","undo","redo, reset"],\
+           toolbar_location="above", width=600, height=500)
 p.toolbar.logo = "grey"
 
 ## the labels
 p.hover.tooltips = [
-    ("mass",   "@png_masses"),
-    ("[Fe/H]", "@png_FeH"),
-    ("Z",      "@png_Z")
+    ("mass"     , "@png_masses"),
+    ("[Fe/H]"   , "@png_FeH"),
+    ("Z"        , "@png_Z"),
 	]
-#    ("image",  "@pngs")
+#    ("download" , "@png_data_urls"),
+#    ("Age (Myr)",    "@png_age")
 
 
 
@@ -301,20 +341,10 @@ p.yaxis.axis_label = "[Fe/H] (dex)"
 output_file("heatmap.html", title="Bokeh mass-[Fe/H] grid")#, mode='inline')
 
 layout = column(row(p, div))
+#layout = column(button,row(p, div))
 show(layout)
 
-#fig, ax = plt.subplots(figsize = (20,12))
 
-# plt.scatter(x=mm, y=zz, marker='s', c='navy', s= 370, alpha=1, label=r'wrmse > 50')
-# plt.scatter(x=missing_m, y=missing_FeH, marker='s', c='lightgrey', s=370, alpha=1, label='missing models')
-# p.scatter(x=uniq_masses, y=uniq_FeH, c=best_score,\
-# vmin=P_wrmse_lower_lim, vmax=P_wrmse_upper_lim, s=370, marker="s", alpha=1,\
-# cmap=cmap) #
-
-
-# cbar = plt.colorbar(orientation="vertical")
-# cbar.ax.tick_params(labelsize=24)
-# cbar.set_label(label="weighted root-mean-square error\n "+which_P+" period fits only", size=28)
 
 # plt.xlabel(r'Model Initial Mass ($M_{\odot}$)', fontsize=30)
 # plt.ylabel('[Fe/H] (dex)', fontsize=30)

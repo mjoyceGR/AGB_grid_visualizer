@@ -26,4 +26,5 @@ See paper for more detail on the statistics.
   file containing the composite observational measurements of period and period uncertainty as a function of (relative) time
 
 
+### The visualizer is supposed to behave like this:
 ![alt text](https://github.com/mjoyceGR/AGB_grid_visualizer/blob/main/visualizer_screenshot.png?raw=true)

@@ -95,14 +95,22 @@ z_values=np.array(list(FeH_dict.keys()))
 # generate a warning box if file doesn't exist
 #
 #######################################################
-all_models = glob.glob('../LOGS/history*drag-on_seismic_p3.data')
+# outf = open('models.dat',"w")
+# all_models = glob.glob('../LOGS/history*drag-on_seismic_p3.data')
+# for f in all_models:
+# 	outf.write(f.split('LOGS/')[1]+'\n')
+# outf.close()
+# sys.exit()
+
+all_models = open("models.dat","r").read()
+#print('all_models: ', all_models)
 
 missing_m = []
 missing_z = []
 missing_FeH = []
 for k in mgrid:
 	for l in z_values:
-		test_str = '../LOGS/history_m'+"%.2f"%float(k)+'_z'+"%.4f"%float(l)+'_eta0.01_drag-on_seismic_p3.data'
+		test_str = 'history_m'+"%.2f"%float(k)+'_z'+"%.4f"%float(l)+'_eta0.01_drag-on_seismic_p3.data' #../LOGS/
 		if test_str not in all_models:
 			missing_m.append(float(k))
 			missing_z.append(float(l))

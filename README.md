@@ -19,10 +19,14 @@ See paper for more detail on the statistics.
 #### - names_of_pngs.dat
  a list of png files needed in the visualizer. The filenames correspond verbatim to the files used in the visualizer. The files are availble at https://meridithjoyce.com/images/AGB_grid/Nov28_2023/ and can be reproduced by running the `associated_plots.py` script in a directory containing the desired history data files 
 
- #### - `associated_plots.py`
+#### - model_ages.dat
+ crude average age in Myr taken by summing the model star's age at the onset of the TP-AGB phase and its age at the termination of the run and dividing by two.  
+
+
+#### - `associated_plots.py`
   script used to generate the pngs 
 
- #### - r_hya_supplemented_years.csv
+#### - r_hya_supplemented_years.csv
   file containing the composite observational measurements of period and period uncertainty as a function of (relative) time
 
 

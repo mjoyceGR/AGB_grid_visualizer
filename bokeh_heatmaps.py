@@ -241,16 +241,16 @@ png_FeH=[]
 png_Z = []
 pngs_Nov9 = []
 pngs = []
-
 png_data_urls = []
+png_ages=[]
 
-#png_ages=[]
+mass_from_ages, z_from_ages, ages= np.loadtxt('model_ages.dat',usecols=(0,1,2), unpack=True)
+
 #outf=open('names_of_pngs.dat','w')
 #for f in glob.glob('../associated_pulse_spectra/*.png'):
 for f in open('names_of_pngs.dat',"r").readlines():
 
 	#outf.write(f.split('../associated_pulse_spectra/')[1]+'\n')
-
 	#Pvt_m1.00_FeH-1.200.png
 
 	#try:""
@@ -271,8 +271,15 @@ for f in open('names_of_pngs.dat',"r").readlines():
 	hist_file_name = 'history_m'+"%.2f"%float(mass_val)+'_z'+"%.4f"%float(z_val)+'_eta0.01_drag-on_seismic_p3.data' 
 	hist_url = 'https://meridithjoyce.com/pulse_data/'+hist_file_name
 
-	#print(hist_url)
+	try:
+		assoc_age = ages[ np.where(  (mass_from_ages == float(mass_val)) & (z_from_ages == float(z_val)) )[0]  ] 
+		formatted_assoc_age = "%.2f"%float(assoc_age/1.0e3)
 
+		png_ages.append(formatted_assoc_age)
+	except:
+		png_ages.append('not found')	
+
+	#print(hist_url)
 	png_data_urls.append(hist_url)
 
 #outf.close()
@@ -283,11 +290,12 @@ image_dict = {
 		      'png_masses'    : png_masses,
 		      'png_FeH'       : png_FeH,
 		      'png_Z'         : png_Z,
+		      'png_ages'      : png_ages,		      
 		      'pngs' 	      : pngs,
 		      'pngs_Nov9' 	  : pngs_Nov9,
 		      'png_data_urls' : png_data_urls
               }
-#		      'png_ages'   : png_ages
+
 image_df = pd.DataFrame(data=image_dict)
 ds = ColumnDataSource(data=image_df)
 ht = HoverTool()
@@ -336,9 +344,9 @@ p.hover.tooltips = [
     ("mass"     , "@png_masses"),
     ("[Fe/H]"   , "@png_FeH"),
     ("Z"        , "@png_Z"),
+    ("Age (Gyr)", "@png_ages")
 	]
 #    ("download" , "@png_data_urls"),
-#    ("Age (Myr)",    "@png_age")
 
 
 

@@ -1,1 +1,68 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! authors: G. C. Cinquegrana & M. Joyce
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+&star_job
+
+    read_extra_star_job_inlist(1) = .true.
+    extra_star_job_inlist_name(1) = 'inlist_common'
+
+      create_pre_main_sequence_model = .true.
+
+      save_model_when_terminate = .true.
+      save_model_filename = 'TACHeB_m<<MASS>>_z<<Z_in>>_eta<<eta>>.mod'
+
+      required_termination_code_string = 'xa_central_lower_limit'
+
+!! add in hydrodynamics per Eb suggestion on archives: 
+!! https://lists.mesastar.org/pipermail/mesa-users/2023-March/014382.html
+      change_v_flag = .true.
+      new_v_flag = .true.
+
+
+
+/ !end of star_job namelist
+
+&eos
+      read_extra_eos_inlist(1) = .true.
+      extra_eos_inlist_name(1) = 'inlist_common'
+/ ! end of eos namelist
+
+
+&kap
+      read_extra_kap_inlist(1) = .true.
+      extra_kap_inlist_name(1) = 'inlist_common'
+/ ! end of kap namelist
+
+
+&controls
+    !! suggestion from other devs from 1ms_to_wd test_suite case
+    convergence_ignore_equL_residuals = .true.
+
+!! following test_suite case inlist_1.3M_ms_high_Z, commenting out the relax command and adding the three below
+!    relax_use_gold_tolerances = .true.
+   energy_eqn_option = 'dedt'
+   use_gold2_tolerances = .true.
+   max_abs_rel_run_E_err = 1d-2
+!! -----------------------------------------------------------------
+
+    varcontrol_target = 1d-4 !1d-3 !! 1d-4 is default
+
+
+    star_history_name = 'history_m<<MASS>>_z<<Z_in>>_eta<<eta>><<TAG>>_p1.data'
+
+    read_extra_controls_inlist(1) = .true.
+    extra_controls_inlist_name(1) = 'inlist_common'
+
+     xa_central_lower_limit_species(1) = 'he4'
+    xa_central_lower_limit(1) = 1d-4 !1d-4
+ 
+
+   mesh_delta_coeff = 1.0 !1.5d0 !! lower resolution to get through helium flash?
+
+      !! >> this fails on the first timestep all of the sudden? worked with Giulia's before; very confused
+      !stop_at_phase_ZACHeB = .true.
+
+/ ! end of controls namelist

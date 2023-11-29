@@ -1,0 +1,167 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! authors: G. C. Cinquegrana & M. Joyce
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+&star_job
+    history_columns_file = 'history_RHya.list'
+    profile_columns_file = 'profile_RHya.list'
+    
+      !create_pre_main_sequence_model = .false.
+
+      !save_model_when_terminate = .true.
+      !save_model_filename = 'TACHeB_m<<MASS>>_z<<Z_in>>.mod'
+
+
+      !required_termination_code_string = 'xa_central_lower_limit'
+
+! network
+      !! 7/20/23 following 1.3M, highZ test suite case -- just uses basic.net
+      !! changing to basic didn't help
+
+      auto_extend_net = .true.
+      !! need pp_extras because phase_of_evolution
+      !! routines require a search for
+      !! h2
+      h_he_net = 'pp_extras.net' !'basic.net'
+      co_net = 'co_burn.net'
+      adv_net = 'approx21.net' !! unclear; do we need technetium? do we care?
+
+! opacities
+      initial_zfracs = 4 ! for L03 solar scaling
+
+/ !end of star_job namelist
+
+&eos
+
+/ ! end of eos namelist
+
+
+&kap
+      Zbase = <<Z_in>>d0 ! 0.03d0
+
+      !! remove to test convergence 7/20/23
+      !! AESOPUS needs to be removed when Z = 0.02 or higher
+      use_Type2_opacities = .true.
+      kap_file_prefix = 'gs98'
+      kap_CO_prefix = 'gs98_co'
+
+      ! kap_lowT_prefix = 'AESOPUS'
+      ! AESOPUS_filename = 'AESOPUS_GCJul22_allZ.h5'
+      kap_lowT_prefix = 'lowT_fa05_gs98' !! for z= 0.02, 0.05
+
+
+/ ! end of kap namelist
+
+
+&controls
+
+      !! Joyce introduced changes 5/30/23
+      !MLT_option = 'TDC' !! no!
+
+      !star_history_name = 'history_m<<MASS>>_z<<Z_in>><<TAG>>.data'
+
+      initial_mass = <<MASS>> !2.0  !! loop
+      initial_y = 0.30    !! probably fix
+      initial_z = <<Z_in>> !0.03    !! loop
+
+      mixing_length_alpha = 1.931  !! from Giulia's solar calibration, so keep it
+      MLT_option = 'Henyey'
+
+!      always_use_dedt_form_of_energy_eqn = .true.
+!      use_dedt_form_of_energy_eqn = .true.
+
+      num_trace_history_values = 2
+      trace_history_value_name(1) = 'rel_E_err'
+      trace_history_value_name(2) = 'log_rel_run_E_err'
+
+
+      atm_option = 'T_tau'
+      atm_T_tau_relation = 'Eddington'
+      atm_T_tau_opacity = 'fixed'
+
+      cool_wind_RGB_scheme = 'Reimers'
+      cool_wind_AGB_scheme = 'Blocker'
+      RGB_to_AGB_wind_switch = 1d-4
+      Reimers_scaling_factor = 0.477d0
+      Blocker_scaling_factor = <<eta>>d0!0.01d0 !! eta_Bloecker
+
+      !! testing whether this gets through TACHeB 7/18/23
+      energy_eqn_option = 'dedt' !! copy-pasted from 1.3M highZ test suite case 7/20/23
+     ! use_gold2_tolerances = .true.
+     !! weakening tolerances
+     relax_use_gold_tolerances = .true.
+
+
+      use_Ledoux_criterion = .false.
+      
+      !! Ledoux has to be on here for this to work anyway...??
+      ! predictive_mix(1) = .true.
+      ! predictive_zone_type(1) = 'any'
+      ! predictive_zone_loc(1) = 'core'
+      ! predictive_bdy_loc(1) = 'any'
+      ! predictive_superad_thresh(1) = 0.005
+      ! predictive_avoid_reversal = 'he4'
+
+      ! num_cells_for_smooth_gradL_composition_term = 10
+      ! threshold_for_smooth_gradL_composition_term = 0.02
+      ! num_cells_for_smooth_brunt_B = 10
+      ! threshold_for_smooth_brunt_B = 0.1
+
+      photo_interval = -1 !100 !50 !! changed to 50
+      photo_digits = 5 !3
+
+      profile_interval = -1 !100
+      history_interval = 1 !10
+      terminal_interval = 10
+      write_header_frequency = 100
+
+
+! temporally resolve the thermal pulse (and interpulse)
+
+ 
+  !!!!!!!1  Joyce 5/30/23 -- introduce GYRE-on-the-fly controls
+  ! run GYRE to calculate oscillation modes 
+  
+    ! x_logical_ctrl(1) = .false. !! turn on the run_GYRE feature
+    ! x_integer_ctrl(1) = -1 !10 !! this stores eigenfunctions which we don't need
+
+    !! evolution-based stopping condition
+    ! x_integer_ctrl(2) = 10 ! 10 should be carbon burning !! removed this from run_star_extras
+
+!!!!!!!!!!!!!!!!!!!!! OUTPUT GYRE THINGS 
+
+  ! calculate Brunt-Vaisala freq
+  calculate_Brunt_N2 = .true.
+  log_directory = 'LOGS'
+
+  ! if true, write out puls. infos when writing profile
+  write_profiles_flag = .false. !.true.
+  profile_interval = 1
+  write_pulse_data_with_profile = .false. !.true.
+  pulse_data_format = 'GYRE'
+
+    !!!!!!!!!!!!!!!!!!!!!!!!
+    !! new limit format for 23051
+    !!!!!!!!!!!!!!!!!!!!!!!!!
+    ! !   ! ::
+    ! dX_limit_species(1) = 'he4'
+    ! dX_limit_min_X(1) = 1d-4
+    !dX_limit_min_X(:) = 1d99
+
+! ! stopping criterion
+      ! xa_central_lower_limit_species(1) = 'he4'
+      ! xa_central_lower_limit(1) = 1d-4 !1d-4
+      
+      !! >> this fails on the first timestep all of the sudden? worked with Giulia's before; very confused
+
+      !stop_at_phase_ZACHeB = .true.
+
+
+    !! these values recommended by Eb Farag 9/19/23
+    ! drag_coefficient = 0.8d0 ! 0d0
+    ! min_q_for_drag = 0.98d0 !0d0
+    !! turning these on only during AGB phase
+
+/ ! end of controls namelist

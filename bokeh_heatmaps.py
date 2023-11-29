@@ -237,12 +237,17 @@ pngs = []
 png_data_urls = []
 
 #png_ages=[]
-for f in glob.glob('../associated_pulse_spectra/*.png'):
+#outf=open('names_of_pngs.dat','w')
+#for f in glob.glob('../associated_pulse_spectra/*.png'):
+for f in open('names_of_pngs.dat',"r").readlines():
+
+	#outf.write(f.split('../associated_pulse_spectra/')[1]+'\n')
+
 	#Pvt_m1.00_FeH-1.200.png
 
-	#try:
-	pngs_Nov9.append(file_header_Nov9 + f.split('../associated_pulse_spectra/')[1] )
-	pngs.append(     file_header + f.split('../associated_pulse_spectra/')[1] )
+	#try:""
+	pngs_Nov9.append(file_header_Nov9 + f )
+	pngs.append(     file_header + f )
 
 	mass_val = float(f.split('Pvt_m')[1].split('_FeH')[0])
 
@@ -261,6 +266,8 @@ for f in glob.glob('../associated_pulse_spectra/*.png'):
 	#print(hist_url)
 
 	png_data_urls.append(hist_url)
+
+#outf.close()
 
 
 

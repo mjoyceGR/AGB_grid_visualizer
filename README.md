@@ -25,5 +25,5 @@ See paper for more detail on the statistics.
  #### - r_hya_supplemented_years.csv
   file containing the composite observational measurements of period and period uncertainty as a function of (relative) time
 
-<!-- #Period    mass   z  pulse_number  period_WRMSE    global_WRMSE 
-FM   1.00   0.0013   3   115.0333   283.6358 -->
+
+![alt text](https://github.com/mjoyceGR/AGB_grid_visualizer/blob/main/visualizer_screenshot.png?raw=true)

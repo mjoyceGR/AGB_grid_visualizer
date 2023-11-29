@@ -2,7 +2,7 @@
 visualization tools for grids of AGB models accompanying RHya paper
 
 ## includes:
-#### - bokeh_heatmaps.py 
+#### - `bokeh_heatmaps.py`
 which loads the visualization tool in the browser 
 #### - four "best_fits" data files
  containing the best fit statistics as a function of mass, metallicity, and mode ID assumption (FM vs O1), computed according to different assumptions regarding agreement with period, luminosity, effective temperature, and radius. 
@@ -17,7 +17,13 @@ See paper for more detail on the statistics.
  The file names correspond verbatim to the MESA output data files that were used to make the pulse spectra figures in the visualizer and are available at https://meridithjoyce.com/pulse_data/
 
 #### - names_of_pngs.dat
- a list of png files needed in the visualizer. The filenames correspond verbatim to the files used in the visualizer. The files are availble at https://meridithjoyce.com/images/AGB_grid/Nov28_2023/ and can be reproduced by using 
+ a list of png files needed in the visualizer. The filenames correspond verbatim to the files used in the visualizer. The files are availble at https://meridithjoyce.com/images/AGB_grid/Nov28_2023/ and can be reproduced by running the `associated_plots.py` script in a directory containing the desired history data files 
+
+ #### - `associated_plots.py`
+  script used to generate the pngs 
+
+ #### - r_hya_supplemented_years.csv
+  file containing the composite observational measurements of period and period uncertainty as a function of (relative) time
 
 <!-- #Period    mass   z  pulse_number  period_WRMSE    global_WRMSE 
 FM   1.00   0.0013   3   115.0333   283.6358 -->

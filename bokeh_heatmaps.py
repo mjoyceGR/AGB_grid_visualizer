@@ -348,6 +348,8 @@ p.scatter(x=uniq_masses, y=uniq_FeH, fill_color=hex_colors, size=16, line_width=
 p.scatter(source=ds , x="png_masses", y="png_FeH", color='lightgrey', alpha=0, size=16, line_width=0, marker='star')
 
 
+p.title=fit_file.split('../')[1]
+
 p.xaxis.axis_label = "Model Initial Mass"
 p.yaxis.axis_label = "[Fe/H] (dex)"
 #p.xaxis.xlim = ()

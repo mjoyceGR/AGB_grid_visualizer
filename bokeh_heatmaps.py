@@ -33,7 +33,7 @@ import mesa_reader as mr
 import pandas as pd
 import bokeh
 from bokeh.events import ButtonClick
-from bokeh.models import ColumnDataSource
+from bokeh.models import ColumnDataSource,  OpenURL, TapTool
 from bokeh.plotting import figure, show, output_file 
 from bokeh.models import HoverTool
 from bokeh.io import show
@@ -241,7 +241,7 @@ png_FeH=[]
 png_Z = []
 pngs_Nov9 = []
 pngs = []
-png_data_urls = []
+data_urls = []
 png_ages=[]
 
 mass_from_ages, z_from_ages, ages= np.loadtxt('model_ages.dat',usecols=(0,1,2), unpack=True)
@@ -280,10 +280,9 @@ for f in open('names_of_pngs.dat',"r").readlines():
 		png_ages.append('not found')	
 
 	#print(hist_url)
-	png_data_urls.append(hist_url)
+	data_urls.append(hist_url)
 
 #outf.close()
-
 
 
 image_dict = {
@@ -293,13 +292,40 @@ image_dict = {
 		      'png_ages'      : png_ages,		      
 		      'pngs' 	      : pngs,
 		      'pngs_Nov9' 	  : pngs_Nov9,
-		      'png_data_urls' : png_data_urls
+		      'data_urls'     : data_urls
               }
 
 image_df = pd.DataFrame(data=image_dict)
 ds = ColumnDataSource(data=image_df)
 ht = HoverTool()
 div = Div(text="")
+
+
+
+## my own defintiion of hover is at the top of this script
+#TOOLS="hover,crosshair,pan,wheel_zoom,zoom_in,zoom_out,box_zoom,undo,redo,reset,"   
+p = figure(tools=["pan","wheel_zoom","zoom_in","zoom_out","box_zoom","undo","redo, reset"],\
+           toolbar_location="right", width=800, height=600) #"crosshair"  # removed "ht" ht,"tap",
+p.toolbar.logo = "grey"
+
+frame1 = p.scatter(x=mm, y=zz, marker='square', fill_color='navy', size=12, alpha=1, line_width = 0) ## this covers whole layer with navy squares
+frame2 = p.scatter(x=missing_m, y=missing_FeH, marker='square', fill_color='lightgrey', size=12, alpha=1, line_width = 0)
+frame3 = p.scatter(x=uniq_masses, y=uniq_FeH, fill_color=hex_colors, size=16, line_width=0, marker='square')#,\
+
+
+frame4 = p.scatter(source=ds , x="png_masses", y="png_FeH", color='lightgrey', alpha=0, size=16, line_width=0, marker='star')
+
+
+####################################
+#
+# mass,Z indexing will be WRONG if the data source
+# is not the correct one for the frame
+# img_dict applies only to frame4
+#
+####################################
+custom_tap = TapTool(renderers=[frame4],callback=OpenURL(url="@data_urls") )
+p.add_tools(custom_tap)
+
 
 ########################
 #
@@ -310,50 +336,46 @@ div = Div(text="")
 # to remove the "random image substitution" issue 
 #
 ########################
-ht.callback = CustomJS(args=dict(div=div, ds=ds), code="""
+ht_callback = CustomJS(args=dict(div=div, ds=ds), code="""
     const hit_test_result = cb_data.index;
     const indices = hit_test_result.indices;
     if (indices.length >= 0) {
-        div.text = 
-                `<img
-                src="${ds.data['pngs'][indices[0]]}" height="200" alt="no pulse spectrum available"
+         div.text = `
+                <img
+                src="${ds.data['pngs'][indices[0]]}" height="400" alt="no pulse spectrum available"
                 style="float: left; margin: 0px 15px 15px 0px; image-rendering: crisp-edges;"
                 border="2"
                 ></img>
-				<img
-                src="${ds.data['pngs_Nov9'][indices[0]]}" height="200" alt="no pulse spectrum available"
-                style="float: left; margin: 0px 15px 15px 0px; image-rendering: crisp-edges;"
-                border="2"
-                ></img>
+
+				<h2>mass = ${ds.data['png_masses'][indices[0]]} Msolar
+		 		</h2>
+				<h2> [Fe/H] = ${ds.data['png_FeH'][indices[0]]} dex
+				</h2>
+				<h2> Z = ${ds.data['png_Z'][indices[0]]}
+				</h2>
+				<h2> median age = ${ds.data['png_ages'][indices[0]]} Gyr
+				</h2>
+				<p><a href=${ds.data['data_urls'][indices[0]]}> click to download data for this file </a></p>
+
                 `;
 
     }
 """)
 
+custom_hover = HoverTool(renderers=[frame4], callback=ht_callback)
+p.add_tools(custom_hover)
 
-
-
-## my own defintiion of hover is at the top of this script
-#TOOLS="hover,crosshair,pan,wheel_zoom,zoom_in,zoom_out,box_zoom,undo,redo,reset,"   
-p = figure(tools=[ht,"crosshair","pan","wheel_zoom","zoom_in","zoom_out","box_zoom","undo","redo, reset"],\
-           toolbar_location="above", width=600, height=500)
-p.toolbar.logo = "grey"
-
-## the labels
+## the next line suppresses hover boxes appearing next to the cursor
 p.hover.tooltips = [
-    ("mass"     , "@png_masses"),
-    ("[Fe/H]"   , "@png_FeH"),
-    ("Z"        , "@png_Z"),
-    ("Age (Gyr)", "@png_ages")
+    (""     , ""),
 	]
-#    ("download" , "@png_data_urls"),
-
-
-
-p.scatter(x=mm, y=zz, marker='square', fill_color='navy', size=12, alpha=1, line_width = 0) ## this covers whole layer with navy squares
-p.scatter(x=missing_m, y=missing_FeH, marker='square', fill_color='lightgrey', size=12, alpha=1, line_width = 0)
-p.scatter(x=uniq_masses, y=uniq_FeH, fill_color=hex_colors, size=16, line_width=0, marker='square')#,\
-p.scatter(source=ds , x="png_masses", y="png_FeH", color='lightgrey', alpha=0, size=16, line_width=0, marker='star')
+## the labels
+# p.hover.tooltips = [
+#     ("mass"     , "@png_masses"),
+#     ("[Fe/H]"   , "@png_FeH"),
+#     ("Z"        , "@png_Z"),
+#     ("Age (Gyr)", "@png_ages")
+# 	]
 
 
 p.title=fit_file.split('../')[1]
@@ -363,33 +385,12 @@ p.yaxis.axis_label = "[Fe/H] (dex)"
 #p.xaxis.xlim = ()
 #p.yaxis.lim = ()
 
-output_file("heatmap.html", title="Bokeh mass-[Fe/H] grid")#, mode='inline')
+#output_file("heatmap.html", title="Bokeh mass-[Fe/H] grid")#, mode='inline')
 
 layout = column(row(p, div))
 #layout = column(button,row(p, div))
 show(layout)
 
-
-
-# plt.xlabel(r'Model Initial Mass ($M_{\odot}$)', fontsize=30)
-# plt.ylabel('[Fe/H] (dex)', fontsize=30)
-# plt.xlim(0.75, 5.05)
-# plt.ylim(-1.25, 1.05)
-
-
-# ax.tick_params(axis='both', which='major', labelsize=24)
-# ax.tick_params(axis='both', which='minor', labelsize=20)
-
-# ax.xaxis.set_minor_locator(AutoMinorLocator())
-# ax.yaxis.set_minor_locator(AutoMinorLocator())
-# ax.tick_params(which='both', width=2)
-# ax.tick_params(which='major', length=12)
-# ax.tick_params(which='minor', length=8, color='black')
-
-# plt.legend(loc=4, fontsize=18, facecolor='white', framealpha=1)
-
-# plt.show()
-# plt.close()
 
 
 

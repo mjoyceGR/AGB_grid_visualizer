@@ -1,4 +1,3 @@
-history_m1.91_z0.0300_eta0.01_drag-on_seismic_p3.data
 history_m1.80_z0.1300_eta0.01_drag-on_seismic_p3.data
 history_m3.70_z0.1300_eta0.01_drag-on_seismic_p3.data
 history_m4.30_z0.0125_eta0.01_drag-on_seismic_p3.data
@@ -103,7 +102,6 @@ history_m3.40_z0.0344_eta0.01_drag-on_seismic_p3.data
 history_m1.50_z0.1000_eta0.01_drag-on_seismic_p3.data
 history_m2.30_z0.0080_eta0.01_drag-on_seismic_p3.data
 history_m1.80_z0.0700_eta0.01_drag-on_seismic_p3.data
-history_m1.03_z0.0500_eta0.01_drag-on_seismic_p3.data
 history_m1.30_z0.1500_eta0.01_drag-on_seismic_p3.data
 history_m2.20_z0.0005_eta0.01_drag-on_seismic_p3.data
 history_m3.20_z0.0020_eta0.01_drag-on_seismic_p3.data
@@ -140,7 +138,6 @@ history_m3.20_z0.0600_eta0.01_drag-on_seismic_p3.data
 history_m4.60_z0.0040_eta0.01_drag-on_seismic_p3.data
 history_m3.80_z0.0036_eta0.01_drag-on_seismic_p3.data
 history_m1.20_z0.1200_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0500_eta0.01_drag-on_seismic_p3.data
 history_m2.90_z0.0070_eta0.01_drag-on_seismic_p3.data
 history_m2.30_z0.0700_eta0.01_drag-on_seismic_p3.data
 history_m2.20_z0.0060_eta0.01_drag-on_seismic_p3.data
@@ -205,7 +202,6 @@ history_m4.90_z0.0025_eta0.01_drag-on_seismic_p3.data
 history_m4.80_z0.0010_eta0.01_drag-on_seismic_p3.data
 history_m4.40_z0.0400_eta0.01_drag-on_seismic_p3.data
 history_m3.20_z0.0140_eta0.01_drag-on_seismic_p3.data
-history_m1.07_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m2.90_z0.0100_eta0.01_drag-on_seismic_p3.data
 history_m2.40_z0.0050_eta0.01_drag-on_seismic_p3.data
 history_m3.40_z0.0010_eta0.01_drag-on_seismic_p3.data
@@ -224,7 +220,6 @@ history_m4.40_z0.0125_eta0.01_drag-on_seismic_p3.data
 history_m1.90_z0.0125_eta0.01_drag-on_seismic_p3.data
 history_m3.10_z0.0025_eta0.01_drag-on_seismic_p3.data
 history_m2.50_z0.0030_eta0.01_drag-on_seismic_p3.data
-history_m1.06_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m3.80_z0.0300_eta0.01_drag-on_seismic_p3.data
 history_m2.80_z0.0030_eta0.01_drag-on_seismic_p3.data
 history_m4.30_z0.0600_eta0.01_drag-on_seismic_p3.data
@@ -334,7 +329,6 @@ history_m4.00_z0.0040_eta0.01_drag-on_seismic_p3.data
 history_m1.60_z0.0050_eta0.01_drag-on_seismic_p3.data
 history_m3.20_z0.0080_eta0.01_drag-on_seismic_p3.data
 history_m5.00_z0.0010_eta0.01_drag-on_seismic_p3.data
-history_m1.06_z0.0140_eta0.01_drag-on_seismic_p3.data
 history_m1.70_z0.0125_eta0.01_drag-on_seismic_p3.data
 history_m1.70_z0.0400_eta0.01_drag-on_seismic_p3.data
 history_m2.40_z0.1100_eta0.01_drag-on_seismic_p3.data
@@ -505,7 +499,6 @@ history_m3.50_z0.0100_eta0.01_drag-on_seismic_p3.data
 history_m1.90_z0.0095_eta0.01_drag-on_seismic_p3.data
 history_m2.20_z0.0216_eta0.01_drag-on_seismic_p3.data
 history_m3.20_z0.0700_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0900_eta0.01_drag-on_seismic_p3.data
 history_m2.00_z0.0050_eta0.01_drag-on_seismic_p3.data
 history_m4.50_z0.0800_eta0.01_drag-on_seismic_p3.data
 history_m2.50_z0.0125_eta0.01_drag-on_seismic_p3.data
@@ -516,7 +509,6 @@ history_m3.30_z0.0030_eta0.01_drag-on_seismic_p3.data
 history_m4.70_z0.0040_eta0.01_drag-on_seismic_p3.data
 history_m4.30_z0.0135_eta0.01_drag-on_seismic_p3.data
 history_m1.20_z0.0070_eta0.01_drag-on_seismic_p3.data
-history_m1.07_z0.0500_eta0.01_drag-on_seismic_p3.data
 history_m1.80_z0.0020_eta0.01_drag-on_seismic_p3.data
 history_m1.80_z0.0344_eta0.01_drag-on_seismic_p3.data
 history_m3.30_z0.0800_eta0.01_drag-on_seismic_p3.data
@@ -575,7 +567,6 @@ history_m1.40_z0.0800_eta0.01_drag-on_seismic_p3.data
 history_m2.00_z0.1300_eta0.01_drag-on_seismic_p3.data
 history_m1.00_z0.0900_eta0.01_drag-on_seismic_p3.data
 history_m4.50_z0.0013_eta0.01_drag-on_seismic_p3.data
-history_m1.09_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m4.70_z0.0010_eta0.01_drag-on_seismic_p3.data
 history_m3.50_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m2.60_z0.0140_eta0.01_drag-on_seismic_p3.data
@@ -646,7 +637,6 @@ history_m2.70_z0.0900_eta0.01_drag-on_seismic_p3.data
 history_m3.50_z0.1000_eta0.01_drag-on_seismic_p3.data
 history_m3.30_z0.0125_eta0.01_drag-on_seismic_p3.data
 history_m2.30_z0.0800_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m1.80_z0.0140_eta0.01_drag-on_seismic_p3.data
 history_m1.70_z0.1300_eta0.01_drag-on_seismic_p3.data
 history_m1.00_z0.0500_eta0.01_drag-on_seismic_p3.data
@@ -725,7 +715,6 @@ history_m1.40_z0.0005_eta0.01_drag-on_seismic_p3.data
 history_m3.40_z0.0247_eta0.01_drag-on_seismic_p3.data
 history_m1.50_z0.0500_eta0.01_drag-on_seismic_p3.data
 history_m2.90_z0.0125_eta0.01_drag-on_seismic_p3.data
-history_m1.07_z0.0140_eta0.01_drag-on_seismic_p3.data
 history_m3.40_z0.0030_eta0.01_drag-on_seismic_p3.data
 history_m5.00_z0.0300_eta0.01_drag-on_seismic_p3.data
 history_m1.60_z0.0600_eta0.01_drag-on_seismic_p3.data
@@ -748,12 +737,10 @@ history_m1.10_z0.1500_eta0.01_drag-on_seismic_p3.data
 history_m4.10_z0.0018_eta0.01_drag-on_seismic_p3.data
 history_m1.20_z0.0800_eta0.01_drag-on_seismic_p3.data
 history_m3.50_z0.0020_eta0.01_drag-on_seismic_p3.data
-history_m1.08_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m4.40_z0.1200_eta0.01_drag-on_seismic_p3.data
 history_m2.40_z0.0247_eta0.01_drag-on_seismic_p3.data
 history_m3.00_z0.0025_eta0.01_drag-on_seismic_p3.data
 history_m4.10_z0.0600_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0080_eta0.01_drag-on_seismic_p3.data
 history_m1.10_z0.1300_eta0.01_drag-on_seismic_p3.data
 history_m4.30_z0.0095_eta0.01_drag-on_seismic_p3.data
 history_m2.00_z0.0095_eta0.01_drag-on_seismic_p3.data
@@ -804,7 +791,6 @@ history_m4.60_z0.0400_eta0.01_drag-on_seismic_p3.data
 history_m2.70_z0.0005_eta0.01_drag-on_seismic_p3.data
 history_m2.30_z0.1200_eta0.01_drag-on_seismic_p3.data
 history_m4.10_z0.1200_eta0.01_drag-on_seismic_p3.data
-history_m1.91_z0.0400_eta0.01_drag-on_seismic_p3.data
 history_m3.70_z0.0400_eta0.01_drag-on_seismic_p3.data
 history_m4.00_z0.1200_eta0.01_drag-on_seismic_p3.data
 history_m5.00_z0.0013_eta0.01_drag-on_seismic_p3.data
@@ -854,7 +840,6 @@ history_m1.30_z0.0600_eta0.01_drag-on_seismic_p3.data
 history_m2.70_z0.0300_eta0.01_drag-on_seismic_p3.data
 history_m2.40_z0.0700_eta0.01_drag-on_seismic_p3.data
 history_m1.50_z0.0900_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0600_eta0.01_drag-on_seismic_p3.data
 history_m2.80_z0.0080_eta0.01_drag-on_seismic_p3.data
 history_m4.90_z0.1100_eta0.01_drag-on_seismic_p3.data
 history_m4.90_z0.0060_eta0.01_drag-on_seismic_p3.data
@@ -951,7 +936,6 @@ history_m4.10_z0.0036_eta0.01_drag-on_seismic_p3.data
 history_m4.10_z0.0900_eta0.01_drag-on_seismic_p3.data
 history_m2.30_z0.0001_eta0.01_drag-on_seismic_p3.data
 history_m1.60_z0.0010_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0700_eta0.01_drag-on_seismic_p3.data
 history_m3.00_z0.0036_eta0.01_drag-on_seismic_p3.data
 history_m4.20_z0.0060_eta0.01_drag-on_seismic_p3.data
 history_m3.00_z0.1100_eta0.01_drag-on_seismic_p3.data
@@ -1020,7 +1004,6 @@ history_m3.80_z0.0070_eta0.01_drag-on_seismic_p3.data
 history_m3.80_z0.0060_eta0.01_drag-on_seismic_p3.data
 history_m4.50_z0.0020_eta0.01_drag-on_seismic_p3.data
 history_m3.30_z0.0001_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.1000_eta0.01_drag-on_seismic_p3.data
 history_m2.90_z0.0020_eta0.01_drag-on_seismic_p3.data
 history_m3.20_z0.0216_eta0.01_drag-on_seismic_p3.data
 history_m1.00_z0.0216_eta0.01_drag-on_seismic_p3.data
@@ -1095,11 +1078,9 @@ history_m1.10_z0.0010_eta0.01_drag-on_seismic_p3.data
 history_m1.00_z0.0005_eta0.01_drag-on_seismic_p3.data
 history_m3.90_z0.0018_eta0.01_drag-on_seismic_p3.data
 history_m2.50_z0.0200_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0140_eta0.01_drag-on_seismic_p3.data
 history_m4.30_z0.0700_eta0.01_drag-on_seismic_p3.data
 history_m4.60_z0.0018_eta0.01_drag-on_seismic_p3.data
 history_m3.60_z0.0025_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0100_eta0.01_drag-on_seismic_p3.data
 history_m4.90_z0.0140_eta0.01_drag-on_seismic_p3.data
 history_m4.40_z0.0018_eta0.01_drag-on_seismic_p3.data
 history_m2.20_z0.0020_eta0.01_drag-on_seismic_p3.data
@@ -1113,7 +1094,6 @@ history_m4.20_z0.0070_eta0.01_drag-on_seismic_p3.data
 history_m1.40_z0.0247_eta0.01_drag-on_seismic_p3.data
 history_m1.20_z0.0036_eta0.01_drag-on_seismic_p3.data
 history_m4.80_z0.0050_eta0.01_drag-on_seismic_p3.data
-history_m1.04_z0.0100_eta0.01_drag-on_seismic_p3.data
 history_m2.80_z0.0344_eta0.01_drag-on_seismic_p3.data
 history_m4.90_z0.0800_eta0.01_drag-on_seismic_p3.data
 history_m4.90_z0.0018_eta0.01_drag-on_seismic_p3.data
@@ -1144,7 +1124,6 @@ history_m3.30_z0.0500_eta0.01_drag-on_seismic_p3.data
 history_m1.00_z0.0125_eta0.01_drag-on_seismic_p3.data
 history_m4.70_z0.0247_eta0.01_drag-on_seismic_p3.data
 history_m2.40_z0.0070_eta0.01_drag-on_seismic_p3.data
-history_m1.05_z0.0800_eta0.01_drag-on_seismic_p3.data
 history_m2.00_z0.0001_eta0.01_drag-on_seismic_p3.data
 history_m2.30_z0.0018_eta0.01_drag-on_seismic_p3.data
 history_m2.70_z0.0040_eta0.01_drag-on_seismic_p3.data
@@ -1194,7 +1173,6 @@ history_m2.60_z0.0216_eta0.01_drag-on_seismic_p3.data
 history_m1.80_z0.1400_eta0.01_drag-on_seismic_p3.data
 history_m3.70_z0.0095_eta0.01_drag-on_seismic_p3.data
 history_m4.90_z0.0400_eta0.01_drag-on_seismic_p3.data
-history_m1.08_z0.0140_eta0.01_drag-on_seismic_p3.data
 history_m3.70_z0.0140_eta0.01_drag-on_seismic_p3.data
 history_m4.90_z0.0095_eta0.01_drag-on_seismic_p3.data
 history_m0.90_z0.0005_eta0.01_drag-on_seismic_p3.data
@@ -1227,10 +1205,8 @@ history_m4.80_z0.0400_eta0.01_drag-on_seismic_p3.data
 history_m1.70_z0.0247_eta0.01_drag-on_seismic_p3.data
 history_m1.50_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m2.20_z0.0070_eta0.01_drag-on_seismic_p3.data
-history_m1.03_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m4.40_z0.0013_eta0.01_drag-on_seismic_p3.data
 history_m3.80_z0.0025_eta0.01_drag-on_seismic_p3.data
-history_m1.04_z0.0200_eta0.01_drag-on_seismic_p3.data
 history_m1.40_z0.1000_eta0.01_drag-on_seismic_p3.data
 history_m2.70_z0.0001_eta0.01_drag-on_seismic_p3.data
 history_m2.20_z0.1500_eta0.01_drag-on_seismic_p3.data

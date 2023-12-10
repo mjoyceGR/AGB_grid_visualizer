@@ -25,10 +25,11 @@ from matplotlib.ticker import MaxNLocator
 
 from datetime import datetime 
 
-sys.path.append('../')
+# sys.path.append('../')
 import math_functions_lib as mfl
-sys.path.append('../../py_mesa_reader/')
-import mesa_reader as mr
+
+# sys.path.append('../../py_mesa_reader/')
+# import mesa_reader as mr
 
 import pandas as pd
 import bokeh
@@ -56,7 +57,7 @@ cmdLine=True
 #######################################
 
 #fit_files = ['all_best_fits_O1_withmass.dat','all_best_fits_FM_withmass.dat','STRICT-all_best_fits_O1.dat','STRICT-all_best_fits_FM.dat']
-fit_file = '../'+args.fit_file_name  #all_best_fits_O1_withmass.dat'
+fit_file = args.fit_file_name  #all_best_fits_O1_withmass.dat'
 
 if 'STRICT' in fit_file:
 	use_mixed_statistic = False
@@ -68,12 +69,23 @@ else:
 
 which_P = fit_file.split('best_fits_')[1].split('_withmass.dat')[0]
 
-## NEW! force alignment of colorbars!
-P_wrmse_lower_lim = 10
-all_wrmse_lower_lim = 10
 
-P_wrmse_upper_lim = 50 #50
-all_wrmse_upper_lim = 50 #50
+if 'STRICT' in fit_file and 'O1' in fit_file:
+	mode_domain = 'O1_STRICT'
+elif 'STRICT' in fit_file and 'FM' in fit_file:
+	mode_domain = 'FM_STRICT'
+elif 'O1' in fit_file:
+	mode_domain = 'O1'
+else:
+	mode_domain = 'FM'
+
+
+## NEW! force alignment of colorbars!
+P_wrmse_lower_lim = 3 #5
+all_wrmse_lower_lim = 3 #5
+
+P_wrmse_upper_lim = 70 #70 #50
+all_wrmse_upper_lim = 70 #70 #50
 
 
 #################################################################
@@ -92,15 +104,27 @@ z_values=np.array(list(FeH_dict.keys()))
 
 #######################################################
 #
-# generate a warning box if file doesn't exist
+# place a grey warning box on the heatmap
+# if history_file doesn't exist
 #
 #######################################################
-# outf = open('models.dat',"w")
-# all_models = glob.glob('../LOGS/history*drag-on_seismic_p3.data')
-# for f in all_models:
-# 	outf.write(f.split('LOGS/')[1]+'\n')
-# outf.close()
-# sys.exit()
+
+#######################################################
+# remake models.dat file (false by default)
+########################################################
+make_models_file = False
+
+if make_models_file:
+	outf = open('models.dat',"w")
+	all_models = glob.glob('../LOGS/history*drag-on_seismic_p3.data')
+	for f in all_models:
+		outf.write(f.split('LOGS/')[1]+'\n')
+	outf.close()
+	print('models.dat file recreated; exiting...\n\nset `make_models_file = False` to run visualizer normally')
+
+	sys.exit()
+#else:
+
 
 all_models = open("models.dat","r").read()
 #print('all_models: ', all_models)
@@ -116,9 +140,15 @@ for k in mgrid:
 			missing_z.append(float(l))
 			missing_FeH.append(FeH_dict["%.4f"%float(l)])
 			#print('warning! ', test_str, " not found!!")
+
+			#print('sbatch exec.slurm '+"%.2f"%float(k)+' '+"%.4f"%float(l)+ '\nsleep 60')
+
 missing_m = np.array(missing_m)
 missing_z = np.array(missing_z)
 missing_FeH = np.array(missing_FeH)
+
+
+#sys.exit()
 
 
 ########################################################
@@ -224,8 +254,9 @@ for cc in colors_rgba:
 #file_header = 'https://github.com/mjoyceGR/AGB_grid_visualizer/blob/main/'
 #file_header = '/home/mpj004/meridithjoyce.com/images/AGB_grid/'
 
-file_header_Nov9 = 'https://meridithjoyce.com/images/AGB_grid/Nov9_2023/'
-file_header      = 'https://meridithjoyce.com/images/AGB_grid/Nov28_2023/'
+file_header_Nov9   = 'https://meridithjoyce.com/images/AGB_grid/Nov9_2023/'
+file_header_Nov28  = 'https://meridithjoyce.com/images/AGB_grid/Nov28_2023/'
+file_header        = 'https://meridithjoyce.com/images/AGB_grid/Dec7_2023/'+mode_domain+'/'
 
 Z_dict   = mfl.get_Z_dict()
 FeH_dict = mfl.get_FeH_dict()
@@ -248,24 +279,48 @@ mass_from_ages, z_from_ages, ages= np.loadtxt('model_ages.dat',usecols=(0,1,2), 
 
 #outf=open('names_of_pngs.dat','w')
 #for f in glob.glob('../associated_pulse_spectra/*.png'):
-for f in open('names_of_pngs.dat',"r").readlines():
-
+#print('mode_domain: ',mode_domain)
+for longf in glob.glob('peak_ID_figures/'+mode_domain+'/*.png'):
+#for f in open('names_of_pngs.dat',"r").readlines():
 	#outf.write(f.split('../associated_pulse_spectra/')[1]+'\n')
-	#Pvt_m1.00_FeH-1.200.png
 
-	#try:""
-	pngs_Nov9.append(file_header_Nov9 + f )
+	f = longf.split('peak_ID_figures/'+mode_domain+'/')[1]
+	#print(f)
+
+	#############################
+	#
+	# from associated pulse spectra
+	#
+	#############################
+	#pngs_Nov9.append(file_header_Nov9 + f )
+	#mass_val = float(f.split('Pvt_m')[1].split('_FeH')[0])
+	# png_masses.append( mass_val )
+	# FeH = float( f.split('FeH')[1].split('.png')[0] )
+	# png_FeH.append(FeH)
+	# z_val =  Z_dict[float(FeH)]
+	# png_Z.append(z_val)  ## Z value correspond to floating point FeH key
+
+	#print('png location: ',file_header + f)
 	pngs.append(     file_header + f )
 
-	mass_val = float(f.split('Pvt_m')[1].split('_FeH')[0])
+	#hits_STRICT-FM_5.00_0.0344.png
+	if 'FM' in mode_domain:
+		mass_val = float(f.split('FM')[1].split('_')[1])
+		z_val    = float(f.split('FM')[1].split('_')[2].split('.png')[0])
+
+	elif 'O1' in mode_domain:
+		mass_val = float(f.split('O1')[1].split('_')[1])
+		z_val    = float(f.split('O1')[1].split('_')[2].split('.png')[0])
 
 	png_masses.append( mass_val )
-	FeH = float( f.split('FeH')[1].split('.png')[0] )
+	png_Z.append(z_val)
+	#FeH = float( f.split('FeH')[1].split('.png')[0] )
+
+#	z_val =  Z_dict[float(FeH)]
+	FeH = FeH_dict["%.4f"%z_val]
 	png_FeH.append(FeH)
 
-	z_val =  Z_dict[float(FeH)]
-
-	png_Z.append(z_val)  ## Z value correspond to floating point FeH key
+  ## Z value correspond to floating point FeH key
 
 	## precede with "LOGS/" for local access
 	hist_file_name = 'history_m'+"%.2f"%float(mass_val)+'_z'+"%.4f"%float(z_val)+'_eta0.01_drag-on_seismic_p3.data' 
@@ -278,8 +333,6 @@ for f in open('names_of_pngs.dat',"r").readlines():
 		png_ages.append(formatted_assoc_age)
 	except:
 		png_ages.append('not found')	
-
-	#print(hist_url)
 	data_urls.append(hist_url)
 
 #outf.close()
@@ -291,7 +344,7 @@ image_dict = {
 		      'png_Z'         : png_Z,
 		      'png_ages'      : png_ages,		      
 		      'pngs' 	      : pngs,
-		      'pngs_Nov9' 	  : pngs_Nov9,
+		      # 'pngs_Nov9' 	  : pngs_Nov9,
 		      'data_urls'     : data_urls
               }
 
@@ -355,7 +408,7 @@ ht_callback = CustomJS(args=dict(div=div, ds=ds), code="""
 				</h2>
 				<h2> median age = ${ds.data['png_ages'][indices[0]]} Gyr
 				</h2>
-				<p><a href=${ds.data['data_urls'][indices[0]]}> click to download data for this file </a></p>
+				<p><a href=${ds.data['data_urls'][indices[0]]}> click the point to download data for this file </a></p>
 
                 `;
 
@@ -378,7 +431,7 @@ p.hover.tooltips = [
 # 	]
 
 
-p.title=fit_file.split('../')[1]
+p.title=fit_file#.split()[1]
 
 p.xaxis.axis_label = "Model Initial Mass"
 p.yaxis.axis_label = "[Fe/H] (dex)"

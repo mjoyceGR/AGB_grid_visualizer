@@ -256,7 +256,8 @@ for cc in colors_rgba:
 
 file_header_Nov9   = 'https://meridithjoyce.com/images/AGB_grid/Nov9_2023/'
 file_header_Nov28  = 'https://meridithjoyce.com/images/AGB_grid/Nov28_2023/'
-file_header        = 'https://meridithjoyce.com/images/AGB_grid/Dec7_2023/'+mode_domain+'/'
+file_header_Dec7   = 'https://meridithjoyce.com/images/AGB_grid/Dec7_2023/'+mode_domain+'/'
+file_header        = 'https://meridithjoyce.com/images/AGB_grid/Dec11_2023/'+mode_domain+'/'
 
 Z_dict   = mfl.get_Z_dict()
 FeH_dict = mfl.get_FeH_dict()

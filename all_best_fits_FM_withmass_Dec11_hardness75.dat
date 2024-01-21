@@ -42,6 +42,8 @@
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:04:40---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:44---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:48:31---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:04---
@@ -86,6 +88,8 @@ FM   0.90   0.0030   5   50.6779   156.9538  7625.678033239512
 #--- new collection started at 19:53:37---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:04:45---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:46---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:48:32---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -137,6 +141,8 @@ FM   1.00   0.0140   4   78.1455   202.8313  8815.943930322115
 #--- new collection started at 19:53:39---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:04:56---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:48---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:48:33---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -194,6 +200,8 @@ FM   1.10   0.0247   6   54.1608   142.3183  4608.676429625513
 #--- new collection started at 19:53:46---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:05:16---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:18:15---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:48:35---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -254,6 +262,8 @@ FM   1.20   0.0247   6   54.1608   142.3183  4608.676429625513
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   1.20   0.0300   4   62.3823   155.8430  6809.646283148783
 #--- new collection started at 20:05:21---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:19:51---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:48:36---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -316,6 +326,8 @@ FM   1.30   0.0247   6   54.1608   142.3183  4608.676429625513
 #--- new collection started at 19:53:54---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:05:37---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:18:26---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:48:39---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -382,6 +394,11 @@ FM   1.40   0.0247   7   23.7568   77.2635  3568.0879159849405
 #--- new collection started at 19:55:12---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   1.40   0.0300   6   8.5344   31.5380  3946.3051207490744
+#--- new collection started at 20:08:36---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   1.40   0.0344   6   42.5732   116.2769  4186.736093061847
+#--- new collection started at 20:19:54---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:50:18---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:22---
@@ -448,6 +465,12 @@ FM   1.50   0.0216   7   25.0438   80.0330  2675.6812026653397
 #--- new collection started at 19:54:29---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   1.50   0.0300   6   11.0343   39.7347  3120.593900330205
+#--- new collection started at 20:07:33---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   1.50   0.0344   7   38.7882   107.3781  3304.664447715351
+#--- new collection started at 20:20:12---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   1.50   0.0400   6   21.7106   70.8057  3558.072317954278
 #--- new collection started at 17:48:38---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:27---
@@ -519,6 +542,9 @@ FM   1.60   0.0247   10   37.3075   110.1834  2279.500521838413
 FM   1.60   0.0300   7   11.4982   40.9325  2506.382225254025
 #--- new collection started at 20:06:22---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:18:40---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   1.60   0.0400   6   36.3831   105.4249  2848.9005876282267
 #--- new collection started at 17:48:38---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:32---
@@ -589,6 +615,12 @@ FM   1.70   0.0247   7   19.4248   63.8822  1866.9862234297864
 #--- new collection started at 19:54:17---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   1.70   0.0300   9   51.0964   135.8184  2046.204217267247
+#--- new collection started at 20:07:10---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   1.70   0.0344   6   21.3278   69.0383  2160.7962682710327
+#--- new collection started at 20:18:58---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   1.70   0.0400   6   13.8233   47.2586  2315.2986144396596
 #--- new collection started at 17:48:49---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:36---
@@ -670,6 +702,11 @@ FM   1.80   0.0247   8   28.6871   87.0115  1554.868749895246
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   1.80   0.0300   7   53.9622   138.7541  1699.4642758221198
 FM   1.80   0.0300   8   21.3708   68.3301  1699.54285360531
+#--- new collection started at 20:08:54---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   1.80   0.0344   7   26.3871   80.9248  1792.4165499499516
+#--- new collection started at 20:19:13---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:48:48---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:40---
@@ -757,6 +794,10 @@ FM   1.90   0.0300   9   34.1160   97.2322  1438.908525120734
 #--- new collection started at 20:07:16---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   1.90   0.0344   8   42.1522   113.3679  1515.4478768552394
+#--- new collection started at 20:19:06---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   1.90   0.0400   8   58.3991   141.6485  1615.1614916373655
+FM   1.90   0.0400   9   35.2950   98.8987  1615.232403740269
 #--- new collection started at 17:49:30---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:44---
@@ -845,6 +886,14 @@ FM   2.00   0.0247   11   51.0414   129.1263  1146.8441566214906
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   2.00   0.0300   10   49.2347   124.6879  1240.5937940805377
 FM   2.00   0.0300   9   70.2346   159.5592  1240.515569079841
+#--- new collection started at 20:07:56---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.00   0.0344   10   46.5475   119.2216  1307.0859735306785
+FM   2.00   0.0344   9   70.5955   159.2565  1307.0101010999028
+#--- new collection started at 20:19:37---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.00   0.0400   10   31.1318   88.0803  1388.9201733802342
+FM   2.00   0.0400   9   54.7960   132.8676  1388.8483781862185
 #--- new collection started at 17:49:07---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:49---
@@ -932,6 +981,14 @@ FM   2.10   0.0247   13   44.6814   115.5773  1014.9176354234418
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   2.10   0.0300   11   83.3055   175.1324  1095.2201709073818
 FM   2.10   0.0300   12   56.7158   135.0032  1095.296439984808
+#--- new collection started at 20:11:19---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.10   0.0344   10   82.7115   173.2236  1148.299625823545
+FM   2.10   0.0344   11   58.6657   137.1336  1148.3746965711605
+#--- new collection started at 20:19:29---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.10   0.0400   10   70.9105   154.8437  1215.4591478711436
+FM   2.10   0.0400   11   41.9618   107.5829  1215.5304190723232
 #--- new collection started at 17:48:56---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:51---
@@ -1023,6 +1080,10 @@ FM   2.20   0.0247   14   54.1249   129.7329  918.4348289230109
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   2.20   0.0300   14   88.8653   179.4633  981.8222392035744
 FM   2.20   0.0300   15   63.3218   142.7293  981.8958697699745
+#--- new collection started at 20:09:22---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.20   0.0344   12   84.5113   172.0243  1027.304749121863
+FM   2.20   0.0344   13   60.7875   137.9241  1027.3766127324404
 #--- new collection started at 17:49:07---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:54---
@@ -1114,6 +1175,11 @@ FM   2.30   0.0247   16   46.9408   115.0865  903.3907238554032
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   2.30   0.0300   14   82.4726   167.3936  907.1542849015558
 FM   2.30   0.0300   15   59.5663   134.5055  907.2232026706486
+#--- new collection started at 20:09:56---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.30   0.0344   14   92.5589   179.5623  945.1220488921924
+FM   2.30   0.0344   15   72.0938   151.7624  945.1912955796843
+FM   2.30   0.0344   16   43.2868   107.3213  945.2575303009728
 #--- new collection started at 17:49:05---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:57---
@@ -1207,6 +1273,10 @@ FM   2.40   0.0247   16   40.8402   102.1246  813.28144556496
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   2.40   0.0300   15   79.7687   160.4257  873.6682154938346
 FM   2.40   0.0300   16   56.2417   126.7254  873.7332265725473
+#--- new collection started at 20:11:14---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.40   0.0344   15   84.4078   165.4706  910.9774624031021
+FM   2.40   0.0344   16   60.6309   132.4381  911.0422080802623
 #--- new collection started at 17:49:05---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:09---
@@ -1297,6 +1367,15 @@ FM   2.50   0.0247   17   29.0888   78.2641  727.3194980680253
 FM   2.50   0.0300   15   85.0995   164.4248  781.9623083494653
 FM   2.50   0.0300   16   60.1531   129.7955  782.0246109155431
 FM   2.50   0.0300   17   34.3069   88.0601  782.0838308483342
+#--- new collection started at 20:13:09---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.50   0.0344   15   83.8982   161.7963  815.6947068459887
+FM   2.50   0.0344   16   58.4074   126.5729  815.7561489910311
+#--- new collection started at 20:20:03---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.50   0.0400   14   94.2452   173.5004  859.8829620919845
+FM   2.50   0.0400   15   69.9166   141.3959  859.9447472105036
+FM   2.50   0.0400   16   43.9588   103.3098  860.0038863342442
 #--- new collection started at 17:49:07---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:09---
@@ -1392,6 +1471,17 @@ FM   2.60   0.0247   18   27.6340   74.3836  652.7632610730009
 FM   2.60   0.0300   16   76.8691   149.9423  700.9724179655325
 FM   2.60   0.0300   17   52.7067   115.6825  701.0305749920309
 FM   2.60   0.0300   18   24.8705   68.1538  701.0858492889254
+#--- new collection started at 20:12:26---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.60   0.0344   14   101.7420   181.6206  730.0943338146184
+FM   2.60   0.0344   15   79.3152   152.5983  730.154937694614
+FM   2.60   0.0344   16   53.0735   116.0155  730.2127261487517
+FM   2.60   0.0344   17   27.7217   73.7044  730.26777909614
+#--- new collection started at 20:20:44---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.60   0.0400   14   99.7862   177.4071  770.0277084224152
+FM   2.60   0.0400   15   77.6787   149.0628  770.0873015183316
+FM   2.60   0.0400   16   52.5337   114.2732  770.1443261180889
 #--- new collection started at 17:49:54---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:19---
@@ -1480,6 +1570,16 @@ FM   2.70   0.0247   18   21.4095   61.1238  585.865124273776
 FM   2.70   0.0300   15   82.7335   153.8612  628.9334545565445
 FM   2.70   0.0300   16   58.7385   121.0403  628.9895603283874
 FM   2.70   0.0300   17   32.7219   81.2139  629.0428950544024
+#--- new collection started at 20:12:30---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.70   0.0344   15   81.8222   152.4471  656.0031002790994
+FM   2.70   0.0344   16   57.8701   119.9415  656.0585015812655
+FM   2.70   0.0344   17   31.5498   78.8424  656.111267806082
+#--- new collection started at 20:20:39---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.70   0.0400   15   82.7892   152.6237  690.3296539720433
+FM   2.70   0.0400   16   58.0918   119.5813  690.3846098523904
+FM   2.70   0.0400   17   31.2529   78.0170  690.4371456884957
 #--- new collection started at 17:49:23---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:09---
@@ -1568,6 +1668,15 @@ FM   2.80   0.0300   15   90.1387   159.1816  566.3930722168849
 FM   2.80   0.0300   16   67.9624   129.8686  566.4474356276132
 FM   2.80   0.0300   17   45.0380   98.9692  566.499128810197
 FM   2.80   0.0300   18   20.1485   56.7360  566.5482808621031
+#--- new collection started at 20:12:47---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.80   0.0344   15   92.9983   163.0684  590.0498918352426
+FM   2.80   0.0344   16   68.1170   130.2840  590.1040442193282
+FM   2.80   0.0344   17   46.5968   100.3881  590.1556467606365
+FM   2.80   0.0344   18   19.1394   53.9410  590.2047768166252
+#--- new collection started at 20:21:29---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.80   0.0400   15   95.8853   165.8565  621.4111839237769
 #--- new collection started at 17:49:32---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:45---
@@ -1649,6 +1758,24 @@ FM   2.90   0.0247   16   70.9650   134.2051  475.6776034497712
 FM   2.90   0.0247   17   49.8788   106.9971  475.7267384881368
 FM   2.90   0.0247   18   25.5224   67.3676  475.7733872382909
 FM   2.90   0.0247   19   8.6838   28.8402  475.81772148592836
+#--- new collection started at 20:00:26---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.90   0.0300   15   85.3562   148.1857  510.7516441738281
+FM   2.90   0.0300   16   64.0441   122.1846  510.80290954748267
+FM   2.90   0.0300   17   41.7618   92.9149  510.8516660705747
+FM   2.90   0.0300   18   18.0556   51.4676  510.8980518139766
+#--- new collection started at 20:13:03---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.90   0.0344   15   84.8979   148.0628  532.0642145682193
+FM   2.90   0.0344   16   62.8550   119.5097  532.1151408317639
+FM   2.90   0.0344   17   39.9340   88.6187  532.1636495785343
+FM   2.90   0.0344   18   15.9699   46.4143  532.2098697196301
+#--- new collection started at 20:21:32---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   2.90   0.0400   14   95.9531   162.3467  560.0280374759213
+FM   2.90   0.0400   15   72.2841   131.9249  560.0794175659871
+FM   2.90   0.0400   16   49.2417   100.8711  560.1285325637731
+FM   2.90   0.0400   17   24.9603   63.3448  560.1754155949493
 #--- new collection started at 17:49:35---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:42---
@@ -1715,6 +1842,21 @@ FM   3.00   0.0247   15   61.6195   120.8325  429.9793028233367
 FM   3.00   0.0247   16   40.5643   91.1083  430.0249862389751
 FM   3.00   0.0247   17   19.4524   54.0397  430.0684259790188
 FM   3.00   0.0247   18   9.0503   29.0280  430.1097633689001
+#--- new collection started at 20:02:06---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.00   0.0300   16   65.3578   122.2882  461.1382152269216
+FM   3.00   0.0300   17   42.5679   92.3884  461.18478883199555
+FM   3.00   0.0300   18   21.3743   57.1907  461.2291277128955
+#--- new collection started at 20:13:31---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.00   0.0344   15   73.0907   129.0485  480.3725580143342
+FM   3.00   0.0344   16   50.9540   102.1555  480.4197627860518
+FM   3.00   0.0344   17   28.4686   69.3094  480.46476503629054
+#--- new collection started at 20:21:40---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.00   0.0400   15   83.7898   142.5962  505.66528127056836
+FM   3.00   0.0400   16   61.6625   114.1015  505.71326996490114
+FM   3.00   0.0400   17   37.7964   82.1558  505.75913364177666
 #--- new collection started at 17:49:39---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:26---
@@ -1776,6 +1918,18 @@ FM   3.10   0.0247   15   63.2839   120.4758  389.60992513548047
 FM   3.10   0.0247   16   43.0391   92.5818  389.65350478558315
 FM   3.10   0.0247   17   23.9590   61.4267  389.6949563419518
 FM   3.10   0.0247   18   8.0718   26.1818  389.73439472682975
+#--- new collection started at 20:01:26---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.10   0.0300   14   75.8761   132.8740  417.85925582787667
+FM   3.10   0.0300   15   55.5898   108.1404  417.90470372981474
+FM   3.10   0.0300   16   33.4559   76.5352  417.94798299362003
+FM   3.10   0.0300   17   13.9848   40.6504  417.98921911691434
+#--- new collection started at 20:13:53---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.10   0.0344   14   83.1163   137.9698  435.2975557300982
+FM   3.10   0.0344   15   61.5540   113.5426  435.34369502484674
+FM   3.10   0.0344   16   41.8108   87.9458  435.3877047406743
+FM   3.10   0.0344   17   18.9144   50.5828  435.42968486963116
 #--- new collection started at 17:49:27---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:53:03---
@@ -1895,6 +2049,18 @@ FM   3.30   0.0216   17   12.0616   32.5024  309.82141328071117
 FM   3.30   0.0247   14   47.4219   93.0444  323.10018540591375
 FM   3.30   0.0247   16   11.9379   34.4191  323.17310409498464
 FM   3.30   0.0247   17   15.0503   36.3689  323.2071034843418
+#--- new collection started at 20:02:37---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.30   0.0300   13   69.6397   120.2638  345.4337432792714
+FM   3.30   0.0300   14   52.0495   97.7771  345.47419231891166
+FM   3.30   0.0300   15   31.6493   69.0375  345.5128134740491
+FM   3.30   0.0300   16   13.4249   37.2464  345.54967706312055
+#--- new collection started at 20:14:23---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.30   0.0344   13   69.5342   118.4063  359.7268110431068
+FM   3.30   0.0344   14   49.0126   92.4596  359.7672347849811
+FM   3.30   0.0344   15   29.1884   64.5496  359.80587502913767
+FM   3.30   0.0344   16   11.8582   33.6352  359.8427896933178
 #--- new collection started at 17:49:45---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:47---
@@ -1952,6 +2118,18 @@ FM   3.40   0.0300   13   49.5047   91.0860  315.9922785306474
 FM   3.40   0.0300   14   30.3893   64.4599  316.0284549982394
 FM   3.40   0.0300   15   13.2455   35.5659  316.0630420358441
 FM   3.40   0.0300   16   11.9095   30.1033  316.096134935903
+#--- new collection started at 20:14:59---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.40   0.0344   13   65.9316   110.8151  328.83103384591766
+FM   3.40   0.0344   14   47.8300   87.7492  328.86900214324294
+FM   3.40   0.0344   15   28.2630   60.5703  328.9053255524722
+FM   3.40   0.0344   16   10.0820   28.6602  328.9400885147368
+#--- new collection started at 20:22:40---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.40   0.0400   13   65.2270   107.7786  345.24036594011056
+FM   3.40   0.0400   14   45.3685   83.0045  345.278411139102
+FM   3.40   0.0400   15   25.6158   55.7133  345.31485943500803
+FM   3.40   0.0400   16   8.1181   23.8320  345.3497693751314
 #--- new collection started at 17:49:50---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:35---
@@ -1998,6 +2176,18 @@ FM   3.50   0.0140   8   51.2382   93.5461  226.36693004014896
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   3.50   0.0247   13   18.4646   43.7827  270.7662369117362
 FM   3.50   0.0247   14   7.9781   23.1890  270.79678664630535
+#--- new collection started at 20:03:13---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.50   0.0300   11   70.6130   114.4017  289.15933782404267
+FM   3.50   0.0300   13   31.2668   62.5419  289.22892764400024
+FM   3.50   0.0300   14   14.5233   36.3845  289.2615565125328
+FM   3.50   0.0300   15   10.0658   25.9905  289.2928230185847
+#--- new collection started at 20:15:15---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.50   0.0344   10   68.2687   110.0283  300.7664257226305
+FM   3.50   0.0344   11   49.7493   86.5985  300.802306329164
+FM   3.50   0.0344   12   30.6100   61.0277  300.83670158738533
+FM   3.50   0.0344   14   11.6798   27.9786  300.9012739266246
 #--- new collection started at 17:50:06---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:33---
@@ -2050,6 +2240,12 @@ FM   3.60   0.0247   13   13.5509   33.2487  249.00446879673154
 FM   3.60   0.0300   11   60.6558   97.5261  266.0955264379544
 FM   3.60   0.0300   12   42.0290   73.6033  266.1278251277491
 FM   3.60   0.0300   13   23.5752   48.5606  266.15884382501383
+#--- new collection started at 20:15:38---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.60   0.0344   11   42.2615   73.0872  276.5295602080821
+FM   3.60   0.0344   12   22.5010   46.4702  276.56100157590447
+#--- new collection started at 20:23:40---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:14---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:50---
@@ -2095,6 +2291,14 @@ FM   3.70   0.0200   11   7.7408   20.6858  216.74613759781857
 FM   3.70   0.0247   11   22.3680   44.3533  229.63187058567843
 #--- new collection started at 20:02:39---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:15:37---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.70   0.0344   12   8.6930   22.5042  254.6610884434646
+FM   3.70   0.0344   9   67.6670   100.8803  254.57324200487088
+#--- new collection started at 20:23:53---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+FM   3.70   0.0400   10   53.4106   81.6126  266.66474157672394
+FM   3.70   0.0400   12   13.3007   30.1777  266.724116345129
 #--- new collection started at 17:49:41---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:53:01---
@@ -2140,6 +2344,8 @@ FM   3.80   0.0216   11   15.9614   29.8614  205.07963860465694
 #--- new collection started at 20:02:19---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 FM   3.80   0.0300   8   66.6893   95.8866  226.80334559229152
+#--- new collection started at 20:16:20---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:50:23---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:48---
@@ -2183,6 +2389,8 @@ FM   3.90   0.0216   10   16.5973   32.8797  190.2920277127087
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:02:38---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:16:20---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:50:29---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:53---
@@ -2225,6 +2433,8 @@ FM   3.90   0.0216   10   16.5973   32.8797  190.2920277127087
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:02:49---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:16:31---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:50:36---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:57---
@@ -2266,6 +2476,8 @@ FM   3.90   0.0216   10   16.5973   32.8797  190.2920277127087
 #--- new collection started at 19:52:31---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:03:22---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:16:44---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:50:48---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -2310,6 +2522,8 @@ FM   3.90   0.0216   10   16.5973   32.8797  190.2920277127087
 FM   4.20   0.0247   6   9.1140   25.2889  160.14190286006726
 #--- new collection started at 20:03:45---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:23---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:50:53---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:53:58---
@@ -2351,6 +2565,8 @@ FM   4.20   0.0247   6   9.1140   25.2889  160.14190286006726
 #--- new collection started at 19:53:20---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:03:24---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:48---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:01---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -2394,6 +2610,8 @@ FM   4.20   0.0247   6   9.1140   25.2889  160.14190286006726
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:03:41---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:33---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:18---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:53:43---
@@ -2435,6 +2653,8 @@ FM   4.20   0.0247   6   9.1140   25.2889  160.14190286006726
 #--- new collection started at 19:53:11---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:05:50---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:39---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:17---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -2478,6 +2698,8 @@ FM   4.20   0.0247   6   9.1140   25.2889  160.14190286006726
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:07:03---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:43---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:52:15---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:53:56---
@@ -2520,6 +2742,8 @@ FM   4.20   0.0247   6   9.1140   25.2889  160.14190286006726
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:04:30---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:19:03---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:50:38---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:54:00---
@@ -2561,6 +2785,8 @@ FM   4.20   0.0247   6   9.1140   25.2889  160.14190286006726
 #--- new collection started at 19:53:32---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:04:16---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:41---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:41---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
@@ -2605,6 +2831,8 @@ FM   4.90   0.0135   7   71.2591   75.1271  93.47624509584226
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:04:33---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:18:17---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:51:41---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 17:54:06---
@@ -2646,4 +2874,6 @@ FM   4.90   0.0135   7   71.2591   75.1271  93.47624509584226
 #--- new collection started at 19:53:53---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
 #--- new collection started at 20:04:50---
+#Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age
+#--- new collection started at 20:17:58---
 #Period    mass   z  abs_pulse_number  period_WRMSE    global_WRMSE median_age

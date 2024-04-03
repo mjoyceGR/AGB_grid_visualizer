@@ -49,8 +49,8 @@ parser.add_argument('fit_file_name', help='specify best fits file (e.g. "all_bes
 									'                             "STRICT-all_best_fits_FM.dat"\n'+\
 									'                             "STRICT-all_best_fits_O1.dat"'									
 									, type=str)
-parser.add_argument('use_mixed_statistic', help='\nIf n, use period only. '+\
-	                                            '\nIf y, use P+LTR pseudo-chisq (recommended).'+\
+parser.add_argument('use_mixed_statistic', help='\nIf P, use period only. '+\
+	                                            '\nIf S, use P+LTR pseudo-chisq (recommended).'+\
 	                                            '\nIf L, use L_w.'+\
 	                                            '\nIf T, use T_w.'+\
 	                                            '\nIf R, use R_w.'+\
@@ -63,14 +63,15 @@ cmdLine=True
 
 use_He = False
 make_models_file = False
-make_image_lists = False
+make_image_lists = True
 
 
 #######################################
-if make_image_lists:
-	fit_files = glob.glob('all_best_fits*.dat')
-else:
-	fit_files = [args.fit_file_name]
+# if make_image_lists:
+# 	#fit_files = glob.glob('all_best_fits*.dat')
+# 	fit_files = ['all_best_fits_FM_Feb13_nonlin_hardness75.dat']
+# else:
+fit_files = [args.fit_file_name]
 
 
 for fit_file in fit_files:
@@ -79,6 +80,8 @@ for fit_file in fit_files:
 	which_P    = fit_file.split('best_fits_')[1].split('_')[0]
 	hardness   = fit_file.split('hardness')[1].split('.dat')[0]
 	which_grid = fit_file.split(which_P+'_')[1].split('_hardness')[0]
+
+	date_dir = fit_file.split(which_P+'_')[1].split('_hardness')[0]
 
 
 	if 'STRICT' in fit_file:
@@ -395,239 +398,266 @@ for fit_file in fit_files:
 	image_source_location        = 'associated_pulse_spectra/peak_detections/'+which_grid+\
 											'/hardness'+str(hardness)+'/'+mode_domain+'/'
 	if make_image_lists:
+		subprocess.call('rsync -azvup /home/mjoyce/MESA/work_AGB_mesa-dev/peak_detections/'+\
+						 date_dir+'/hardness'+str(hardness)+'/  ' +\
+						 image_source_location_header + image_source_location, shell = True)
+
 		outf_name = 'png_lists/png_list_' +fit_file.split('all_best_fits_')[1]
+		
+		#print('outf name: ', outf_name)
+		
 		outf = open(outf_name, 'w')	
+		
+		#print('image_source_location =', image_source_location)
+		
 		for longf in glob.glob(image_source_location+'hits_'+mode_domain+'*.png'):
-			#print(longf)
+			#print('longf: ',longf)
+			
 			f = longf.split('hardness'+hardness+'/'+mode_domain+'/')[1]
 			outf.write(f+'\n')
 		outf.close()
 
 
-	else:
-		#########################################################
-		#
-		# populate visualizer with png urls
-		#
-		#########################################################
-		# png_list_FM_Jan20_varied_Yi_hardness100.dat
-		outf = open('png_lists/png_list_'+fit_file.split('all_best_fits_')[1],'r')
-		for f in outf.readlines():
-		
-			web_image_source = website_file_header + f
-			print('web_image_source: ',web_image_source)
-			pngs.append(web_image_source)
+	#else:
+	#########################################################
+	#
+	# populate visualizer with png urls
+	#
+	#########################################################
+	# png_list_FM_Jan20_varied_Yi_hardness100.dat
+	outf = open('png_lists/png_list_'+fit_file.split('all_best_fits_')[1],'r')
+	for f in outf.readlines():
+	
+		web_image_source = website_file_header + f
+		#print('web_image_source: ',web_image_source)
+		pngs.append(web_image_source)
 
-			#hits_STRICT-FM_5.00_0.0344.png
-			if 'FM' in mode_domain:
-				mass_val = float(f.split('_FM')[1].split('_')[1])
-				z_val    = float(f.split('_FM')[1].split('_')[2].split('.png')[0])
-			elif 'O1' in mode_domain:
-				mass_val = float(f.split('_O1')[1].split('_')[1])
-				z_val    = float(f.split('_O1')[1].split('_')[2].split('.png')[0])
+		#hits_STRICT-FM_5.00_0.0344.png
+		if 'FM' in mode_domain:
+			mass_val = float(f.split('_FM')[1].split('_')[1])
+			z_val    = float(f.split('_FM')[1].split('_')[2].split('.png')[0])
+		elif 'O1' in mode_domain:
+			mass_val = float(f.split('_O1')[1].split('_')[1])
+			z_val    = float(f.split('_O1')[1].split('_')[2].split('.png')[0])
 
-			png_masses.append( mass_val )
-			png_Z.append(z_val)
-			FeH = FeH_dict["%.4f"%z_val]
-			png_FeH.append(FeH)
-		
-			if use_He:
-				hist_url = 'https://meridithjoyce.com/pulse_data/varied_He/'+\
-						   'history_m'+"%.2f"%float(mass_val)+'_z'+"%.4f"%float(z_val)+'_eta0.01_yi-on_seismic_p3.data' 
-			else:
-				hist_url = 'https://meridithjoyce.com/pulse_data/fixed_He/'+\
-						   'history_m'+"%.2f"%float(mass_val)+'_z'+"%.4f"%float(z_val)+'_eta0.01_drag-on_seismic_p3.data' 
+		png_masses.append( mass_val )
+		png_Z.append(z_val)
+		FeH = FeH_dict["%.4f"%z_val]
+		png_FeH.append(FeH)
+	
+		if use_He:
+			hist_url = 'https://meridithjoyce.com/pulse_data/varied_He/'+\
+					   'history_m'+"%.2f"%float(mass_val)+'_z'+"%.4f"%float(z_val)+'_eta0.01_yi-on_seismic_p3.data' 
+		else:
+			hist_url = 'https://meridithjoyce.com/pulse_data/fixed_He/'+\
+					   'history_m'+"%.2f"%float(mass_val)+'_z'+"%.4f"%float(z_val)+'_eta0.01_drag-on_seismic_p3.data' 
+
+		############# need to select the BEST from arrays with more than one option, as with PID mask above
+		these_pulses = np.where(  (masses == float(mass_val)) & (zs == float(z_val)) )
+
+		try:	
+			this_pulse = np.where( Sw[these_pulses].min() == Sw[these_pulses] )	
+			assoc_age = median_age[these_pulses][this_pulse][0]
+			#print("assoc_age: ", assoc_age)
+			
+			formatted_assoc_age = "%.2f"%float(assoc_age/1.0e3)
+			png_ages.append(formatted_assoc_age)
+
+		except ValueError:
+			png_ages.append('no match')
+
+		try:
+			this_pulse = np.where( Sw[these_pulses].min() == Sw[these_pulses] )
+			assoc_pid = pulse_num[these_pulses][this_pulse][0]
+			formatted_pid= "%.0f"%float(assoc_pid)
+			png_pid.append(formatted_pid)
 
 			############# need to select the BEST from arrays with more than one option, as with PID mask above
-			these_pulses = np.where(  (masses == float(mass_val)) & (zs == float(z_val)) )
+		except ValueError:
+		 	png_pid.append('no match')	
 
-			try:	
-				this_pulse = np.where( Sw[these_pulses].min() == Sw[these_pulses] )	
-				assoc_age = median_age[these_pulses][this_pulse][0]
-				#print("assoc_age: ", assoc_age)
-				
-				formatted_assoc_age = "%.2f"%float(assoc_age/1.0e3)
-				png_ages.append(formatted_assoc_age)
-
-			except ValueError:
-				png_ages.append('no match')
-
-			try:
-				this_pulse = np.where( Sw[these_pulses].min() == Sw[these_pulses] )
-				assoc_pid = pulse_num[these_pulses][this_pulse][0]
-				formatted_pid= "%.0f"%float(assoc_pid)
-				png_pid.append(formatted_pid)
-
-				############# need to select the BEST from arrays with more than one option, as with PID mask above
-			except ValueError:
-			 	png_pid.append('no match')	
-
-			data_urls.append(hist_url)
+		data_urls.append(hist_url)
 
 
 	if make_image_lists:
-		pass 
-	else:
-		image_dict = {
-				      'png_masses'    : png_masses,
-				      'png_FeH'       : png_FeH,
-				      'png_Z'         : png_Z,
-				      'png_ages'      : png_ages,
-				      'png_pid'       : png_pid,	      
-				      'pngs' 	      : pngs,
-				      # 'pngs_Nov9' 	  : pngs_Nov9,
-				      'data_urls'     : data_urls
-		              }
+		print(' `make_image_lists = True` ... png list created. pngs must also be UPLAODED to work in the visualizer') 
 
-		image_df = pd.DataFrame(data=image_dict)
-		ds = ColumnDataSource(data=image_df)
-		ht = HoverTool()
-		div = Div(text="")
+	image_dict = {
+			      'png_masses'    : png_masses,
+			      'png_FeH'       : png_FeH,
+			      'png_Z'         : png_Z,
+			      'png_ages'      : png_ages,
+			      'png_pid'       : png_pid,	      
+			      'pngs' 	      : pngs,
+			      # 'pngs_Nov9' 	  : pngs_Nov9,
+			      'data_urls'     : data_urls
+	              }
 
-
-
-		## my own defintiion of hover is at the top of this script
-		#TOOLS="hover,crosshair,pan,wheel_zoom,zoom_in,zoom_out,box_zoom,undo,redo,reset,"   
-		p = figure(tools=["pan","wheel_zoom","zoom_in","zoom_out","box_zoom","undo","redo, reset"],\
-		           toolbar_location="right", width=700, height=550) 
-		p.toolbar.logo = "grey"
-
-		frame1 = p.scatter(x=mm, y=zz, marker='square', fill_color='navy', size=12, alpha=1, line_width = 0) ## this covers whole layer with navy squares
-		frame2 = p.scatter(x=missing_m, y=missing_FeH, marker='square', fill_color='lightgrey', size=12, alpha=1, line_width = 0)
-		frame3 = p.scatter(x=uniq_masses, y=uniq_FeH, fill_color=hex_colors, size=16, line_width=0, marker='square')#,\
+	image_df = pd.DataFrame(data=image_dict)
+	ds = ColumnDataSource(data=image_df)
+	ht = HoverTool()
+	div = Div(text="")
 
 
-		frame4 = p.scatter(source=ds , x="png_masses", y="png_FeH", color='lightgrey', alpha=0, size=16, line_width=0, marker='star')
+
+	## my own defintiion of hover is at the top of this script
+	#TOOLS="hover,crosshair,pan,wheel_zoom,zoom_in,zoom_out,box_zoom,undo,redo,reset,"   
+	p = figure(tools=["pan","wheel_zoom","zoom_in","zoom_out","box_zoom","undo","redo, reset"],\
+	           toolbar_location="right", width=700, height=550) 
+	p.toolbar.logo = "grey"
+
+	frame1 = p.scatter(x=mm, y=zz, marker='square', fill_color='navy', size=12, alpha=1, line_width = 0) ## this covers whole layer with navy squares
+	frame2 = p.scatter(x=missing_m, y=missing_FeH, marker='square', fill_color='lightgrey', size=12, alpha=1, line_width = 0)
+	frame3 = p.scatter(x=uniq_masses, y=uniq_FeH, fill_color=hex_colors, size=16, line_width=0, marker='square')#,\
 
 
-		####################################
-		#
-		# mass,Z indexing will be WRONG if the data source
-		# is not the correct one for the frame
-		# img_dict applies only to frame4
-		#
-		####################################
-		custom_tap = TapTool(renderers=[frame4],callback=OpenURL(url="@data_urls") )
-		p.add_tools(custom_tap)
-
-		#########################################
-		#
-		# BUTTON
-		#
-		##########################################
-		longitude_input = TextInput(value=str(0), title="Mass:")
-		latitude_input = TextInput(value=str(0), title="[Fe/H]:")
-		go_button = Button(label="Go to Model", button_type="success")
-
-		callback = CustomJS(args=dict(p=p, latitude_input=latitude_input, longitude_input=longitude_input),
-		                    code="""
-		                    var lat = parseFloat(latitude_input.value);
-		                    var lon = parseFloat(longitude_input.value);
-		                    
-		                    // Update the plot range
-		                    p.x_range.setv({"start": lon - 0.3, "end": lon + 0.3});
-		                    p.y_range.setv({"start": lat - 0.3, "end": lat + 0.3});
-		                    """)
-
-		latitude_input.js_on_change('value', callback)
-		longitude_input.js_on_change('value', callback)
-		go_button.js_on_click(callback)
+	frame4 = p.scatter(source=ds , x="png_masses", y="png_FeH", color='lightgrey', alpha=0, size=16, line_width=0, marker='star')
 
 
-		#########################################
-		#
-		# right-click to download
-		#
-		#########################################
-		# Right-click context menu for downloading data
-		# download_data_callback = CustomJS(args=dict(div=div, ds=ds), code="""
-		#     const hit_test_result = cb_data.index;
-		#     const indices = hit_test_result.indices;
-		#     if (indices.length >= 0) {
-		#         const dataUrl = ds.data['data_urls'][indices[0]];
-		#         const link = document.createElement('a');
-		#         link.href = dataUrl;
-		#         link.download = 'data_file.txt';
-		#         link.click();
-		#     }
-		# """)
-		# custom_tap = TapTool(renderers=[frame4],callback=download_data_callback )
-		# p.add_tools(custom_tap)
+	####################################
+	#
+	# mass,Z indexing will be WRONG if the data source
+	# is not the correct one for the frame
+	# img_dict applies only to frame4
+	#
+	####################################
+	custom_tap = TapTool(renderers=[frame4],callback=OpenURL(url="@data_urls") )
+	p.add_tools(custom_tap)
 
-		# Add the right-click callback to the scatter plot renderer
-		#p.js_on_event('tap', download_data_callback)
+	#########################################
+	#
+	# BUTTON
+	#
+	##########################################
+	longitude_input = TextInput(value=str(0), title="Mass:")
+	latitude_input = TextInput(value=str(0), title="[Fe/H]:")
+	go_button = Button(label="Go to Model", button_type="success")
 
+	unit_button = Button(label="Change Unit", button_type="primary")
 
-		########################
-		#
-		# changed indices.length > 0
-		# to 
-		# indices.length >= 0
-		# !!!!
-		# to remove the "random image substitution" issue 
-		#
-		########################
-		ht_callback = CustomJS(args=dict(div=div, ds=ds), code="""
-		    const hit_test_result = cb_data.index;
-		    const indices = hit_test_result.indices;
-		    if (indices.length >= 0) {
-		         div.text = `
-		                <img
-		                src="${ds.data['pngs'][indices[0]]}" height="400" alt="no pulse spectrum available"
-		                style="float: left; margin: 0px 15px 15px 0px; image-rendering: crisp-edges;"
-		                border="2"
-		                ></img>
+	callback = CustomJS(args=dict(p=p, latitude_input=latitude_input, longitude_input=longitude_input),
+	                    code="""
+	                    var lat = parseFloat(latitude_input.value);
+	                    var lon = parseFloat(longitude_input.value);
+	                    
+	                    // Update the plot range
+	                    p.x_range.setv({"start": lon - 0.3, "end": lon + 0.3});
+	                    p.y_range.setv({"start": lat - 0.3, "end": lat + 0.3});
+	                    """)
 
-						<h2>mass = ${ds.data['png_masses'][indices[0]]} Msolar
-				 		</h2>
-						<h2> [Fe/H] = ${ds.data['png_FeH'][indices[0]]} dex
-						</h2>
-						<h2> Z = ${ds.data['png_Z'][indices[0]]}
-						</h2>
-						</h2>
-						<h2> best-fitting pulse index = ${ds.data['png_pid'][indices[0]]} 
-						<h2> age of best pulse = ${ds.data['png_ages'][indices[0]]} Gyr
-						</h2>
-						<p><a href=${ds.data['data_urls'][indices[0]]}> click the point to download data for this file </a></p>
-
-		                `;
-
-		    }
-		""")
-
-		custom_hover = HoverTool(renderers=[frame4], callback=ht_callback)
-		p.add_tools(custom_hover)
-
-		## the next line suppresses hover boxes appearing next to the cursor
-		p.hover.tooltips = [
-		    (""     , ""),
-			]
+	# unit_callback = CustomJS(args=dict(longitude_input=longitude_input),
+	#                          code="""
+	#                          // Parse the current longitude value
+	#                          var lon = parseFloat(longitude_input.value);
+	                         
+	#                          // Convert to another unit (for example, degrees to radians)
+	#                          var newUnitValue = lon * Math.PI / 180;
+	                         
+	#                          // Update the longitude input value
+	#                          longitude_input.value = newUnitValue.toFixed(4);
+	#                          """)
 
 
-		#fit_file.split('all_best_fits_')[1].split('.dat')[0]
-		p.title='Viewing file:\n    '+fit_file +'\n'+\
-				'using statistic: '+tag
+	latitude_input.js_on_change('value', callback)
+	longitude_input.js_on_change('value', callback)
+	go_button.js_on_click(callback)
 
-		p.xaxis.axis_label = "Model Initial Mass"
-		p.yaxis.axis_label = "[Fe/H] (dex)"
+	#unit_button.js_on_click(unit_callback)
 
-		p.xaxis.axis_label_text_font_size = "18pt"
-		p.yaxis.axis_label_text_font_size = "18pt"
-		p.xaxis.major_label_text_font_size = "16pt"
-		p.yaxis.major_label_text_font_size = "16pt"
+	#########################################
+	#
+	# right-click to download
+	#
+	#########################################
+	# Right-click context menu for downloading data
+	# download_data_callback = CustomJS(args=dict(div=div, ds=ds), code="""
+	#     const hit_test_result = cb_data.index;
+	#     const indices = hit_test_result.indices;
+	#     if (indices.length >= 0) {
+	#         const dataUrl = ds.data['data_urls'][indices[0]];
+	#         const link = document.createElement('a');
+	#         link.href = dataUrl;
+	#         link.download = 'data_file.txt';
+	#         link.click();
+	#     }
+	# """)
+	# custom_tap = TapTool(renderers=[frame4],callback=download_data_callback )
+	# p.add_tools(custom_tap)
 
-		p.title.text_font_size = "16pt"
-
-		# Set custom axis limits
-		p.x_range.start = 1  	# set the start of the x-axis range
-		p.x_range.end = 5    	# set the end of the x-axis range
-		p.y_range.start = -1.2  # set the start of the y-axis range
-		p.y_range.end = 1   	# set the end of the y-axis range
+	# Add the right-click callback to the scatter plot renderer
+	#p.js_on_event('tap', download_data_callback)
 
 
-		layout = column(row(latitude_input, longitude_input, go_button),row(p, div), )
-		#layout = column(button,row(p, div))
-		show(layout)
+	########################
+	#
+	# changed indices.length > 0
+	# to 
+	# indices.length >= 0
+	# !!!!
+	# to remove the "random image substitution" issue 
+	#
+	########################
+	ht_callback = CustomJS(args=dict(div=div, ds=ds), code="""
+	    const hit_test_result = cb_data.index;
+	    const indices = hit_test_result.indices;
+	    if (indices.length >= 0) {
+	         div.text = `
+	                <img
+	                src="${ds.data['pngs'][indices[0]]}" height="400" alt="no pulse spectrum available"
+	                style="float: left; margin: 0px 15px 15px 0px; image-rendering: crisp-edges;"
+	                border="2"
+	                ></img>
+
+					<h2>mass = ${ds.data['png_masses'][indices[0]]} Msolar
+			 		</h2>
+					<h2> [Fe/H] = ${ds.data['png_FeH'][indices[0]]} dex
+					</h2>
+					<h2> Z = ${ds.data['png_Z'][indices[0]]}
+					</h2>
+					</h2>
+					<h2> best-fitting pulse index = ${ds.data['png_pid'][indices[0]]} 
+					<h2> age of best pulse = ${ds.data['png_ages'][indices[0]]} Gyr
+					</h2>
+					<p><a href=${ds.data['data_urls'][indices[0]]}> click the point to download data for this file </a></p>
+
+	                `;
+
+	    }
+	""")
+
+	custom_hover = HoverTool(renderers=[frame4], callback=ht_callback)
+	p.add_tools(custom_hover)
+
+	## the next line suppresses hover boxes appearing next to the cursor
+	p.hover.tooltips = [
+	    (""     , ""),
+		]
+
+
+	#fit_file.split('all_best_fits_')[1].split('.dat')[0]
+	p.title='Viewing file:\n    '+fit_file +'\n'+\
+			'using statistic: '+tag
+
+	p.xaxis.axis_label = "Model Initial Mass"
+	p.yaxis.axis_label = "[Fe/H] (dex)"
+
+	p.xaxis.axis_label_text_font_size = "18pt"
+	p.yaxis.axis_label_text_font_size = "18pt"
+	p.xaxis.major_label_text_font_size = "16pt"
+	p.yaxis.major_label_text_font_size = "16pt"
+
+	p.title.text_font_size = "16pt"
+
+	# Set custom axis limits
+	p.x_range.start = 1  	# set the start of the x-axis range
+	p.x_range.end = 5    	# set the end of the x-axis range
+	p.y_range.start = -1.2  # set the start of the y-axis range
+	p.y_range.end = 1   	# set the end of the y-axis range
+
+
+	layout = column(row(latitude_input, longitude_input, go_button),row(p, div), ) #unit_button
+	#layout = column(button,row(p, div))
+	show(layout)
 
 
 

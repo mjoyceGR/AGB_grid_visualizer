@@ -1,0 +1,58 @@
+&constants
+    GYRE_DIR = '.'
+/
+
+&model
+    add_center = .TRUE. !.FALSE. !! changed 6/13/23
+    model_type = 'EVOL'
+    !file = 'LOGS_profiles/profile1.data.GYRE'
+    !file_format = 'MESA' ! MESA corresponds to the .GYRE file format
+/
+
+&mode
+    l = 0
+    n_pg_max = 10 !100
+/
+
+&osc
+    outer_bound = 'JCD'
+    variables_set = 'JCD'
+/
+
+&grid
+    w_ctr = 10
+    w_osc = 10
+    w_exp = 2
+/
+!-------------
+
+
+&rot
+/
+
+&num
+    diff_scheme = 'MAGNUS_GL6' ! Sixth-order Gauss-Legendre Magnus; higher order necessary for evolved stars
+/
+
+&scan
+    grid_type = 'INVERSE' !'LINEAR'
+    freq_min = 0.01 !0.2 !! earl recommended adjusting scan range
+    freq_max = 10 ! was 1
+    n_freq = 1000
+    freq_units = 'ACOUSTIC_CUTOFF'
+/
+
+
+&tide_output
+/
+
+! &ad_output
+! /
+
+! &nad_output
+!     detail_template = ''
+! !    detail_file = 'output.gyre.txt'
+!     detail_file_format = 'TXT'
+!     detail_item_list = 'l,n_pg,omega,freq,x,xi_r,xi_h,xi_r_ref,xi_h_ref'
+!     freq_units = 'CYC_PER_DAY'
+! /

@@ -1,0 +1,125 @@
+&constants
+    GYRE_DIR = '.'
+/
+
+&model
+    add_center = .TRUE. !.FALSE. !! changed 6/13/23
+    model_type = 'EVOL'
+    !file = 'LOGS_profiles/profile1.data.GYRE'
+    !file_format = 'MESA' ! MESA corresponds to the .GYRE file format
+/
+
+&mode
+    l = 0
+    n_pg_max = 10 !100
+/
+
+&osc
+    outer_bound = 'JCD'
+    variables_set = 'JCD'
+
+    !! new for nad
+    !! https://gyre.readthedocs.io/en/stable/user-guide/advanced-usage/non-ad-oscillations.html#adiabatic-method
+    
+    adiabatic = .FALSE. !! both must be true because the adiabatic solutions provide the IC for the non-ad calculations
+    ! set this to FALSE if using nad_search = 'CONTOUR'
+
+    nonadiabatic = .TRUE. 
+/
+
+&grid
+!! try gradually increasing w_osc and w_ctr if modes are not found
+    w_ctr = 15
+    w_osc = 15
+
+    w_exp = 2
+
+/
+!----------------------------------
+
+&rot
+/
+
+&num
+    !!
+    !
+    ! from: https://gyre.readthedocs.io/en/stable/user-guide/troubleshooting/missing-modes.html#troubleshoot-miss
+    !
+    ! When undertaking non-adiabatic calculations, modes can be mis-classified or completely missed. 
+    ! The former situation arises because the expectation of monotonic-increasing 
+    ! formally applies only to adiabatic oscillations; while it can also work reasonably
+    ! well for weakly non-adiabatic cases, there are no guarantees. If mis-classification
+    ! does occur, then it must be fixed manually by determining which adiabatic mode
+    ! the problematic non-adiabatic mode corresponds to.
+
+    ! Missing modes occur for a different reason: 
+    ! if a mode has a large growth rate, then the usual adiabatic method for
+    ! establishing initial trial roots can fail to find it. In such cases, 
+    ! the alternative contour method performs very well.
+
+    !diff_scheme = 'MAGNUS_GL6' ! Sixth-order Gauss-Legendre Magnus; higher order necessary for evolved stars
+   
+    !! due to convergence difficulties with non-ad mode, change to second order diff scheme    
+    ! http://user.astro.wisc.edu/~townsend/gyre-forums/viewtopic.php?f=3&t=213&p=782&hilit=Failed+during+deflate+narrow+%3A+out+of+domain+frequency#p782
+    diff_scheme = 'MAGNUS_GL2'
+
+    !! new for nad -----------------------------
+    restrict_roots = .FALSE.
+
+    !ad_search = 'BRACKET'
+    nad_search = 'CONTOUR' !'AD'
+
+    n_iter_max = 100 ! default 50
+
+/
+
+
+&scan
+    !! for nad + contour method
+    axis = 'REAL'
+    
+    grid_type = 'LINEAR' !'LINEAR'
+    !! readthedocs says use 'LINEAR' here for nad, but...
+    !grid_type = 'LINEAR'
+
+    !freq_min = 0.01 !0.2 !! earl recommended adjusting scan range
+    
+    !!non-ad
+    !freq_min = 5d-4
+    !freq_max = 15 !10 ! was 1
+    
+    freq_min = 0.001 !! 10k days
+    freq_max = 0.5 !! 0.1 --> 10 days
+
+    !n_freq = 1000
+    !! many more frequencies being missed when in nad mode; increase by??
+    n_freq = 50 !! "a good rule of thumb is that n_freq should be around 5 times larger than the number of modes to be found"
+
+    !freq_units = 'ACOUSTIC_CUTOFF' 
+    freq_units = 'CYC_PER_DAY'
+/
+
+!! need another &scan group for the imaginary axis
+&scan
+  axis = 'IMAG'
+  grid_type = 'LINEAR'
+  freq_min = -0.28
+  freq_max = 0.28
+  n_freq = 5
+/
+
+
+&tide_output
+/
+
+
+! &ad_output
+! /
+
+! &nad_output
+!     detail_template = ''
+! !    detail_file = 'output.gyre.txt'
+!     detail_file_format = 'TXT'
+!     detail_item_list = 'l,n_pg,omega,freq,x,xi_r,xi_h,xi_r_ref,xi_h_ref'
+!     freq_units = 'CYC_PER_DAY'
+! /

@@ -1,3 +1,36 @@
+# The raw data data (e.g. model grids) associated to this project are available on Zenodo. Due to the volume of data, the tracks are spread across multiple Zenodo DOIs and 14 different .tar.gz files
+
+## helium-fixed grid
+### phase 1
+ZAMS_to_TCHeB_y-fixed.tar.gz
+
+### phase 2
+TCHeB_to_AGB_y-fixed.tar.gz
+
+### phase 3
+AGB_to_end_M1.XX_y-fixed.tar.gz  
+AGB_to_end_M2.XX_y-fixed.tar.gz 
+AGB_to_end_M3.XX_y-fixed.tar.gz  
+AGB_to_end_M4.XX_y-fixed.tar.gz
+AGB_to_end_M5.XX_y-fixed.tar.gz
+
+## helium-varied grid
+### phase 1
+ZAMS_to_TCHeB_y-varied.tar.gz
+
+### phase 2
+TCHeB_to_AGB_y-varied.tar.gz
+
+### phase 3
+AGB_to_end_M1.XX_y-varied.tar.gz  
+AGB_to_end_M2.XX_y-varied.tar.gz 
+AGB_to_end_M3.XX_y-varied.tar.gz  
+AGB_to_end_M4.XX_y-varied.tar.gz
+AGB_to_end_M5.XX_y-varied.tar.gz
+
+
+
+
 # AGB_grid_visualizer
 visualization tools for grids of AGB models accompanying RHya paper
 

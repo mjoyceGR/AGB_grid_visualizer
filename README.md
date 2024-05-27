@@ -1,7 +1,24 @@
 # The raw data data (e.g. model grids) associated to this project are available on Zenodo. 
-## Due to the volume of data, the tracks are spread across multiple Zenodo DOIs and 14 different .tar.gz files
+## Due to the volume of data, the tracks are spread across four Zenodo DOIs and several different .tar.gz files
 
-### helium-fixed grid
+### https://zenodo.org/records/11280179
+### https://zenodo.org/records/11282597
+### https://zenodo.org/records/11353933
+### https://zenodo.org/records/11357395
+
+### All phase 1 and phase 2 evolutionary tracks are contained in the files 
+#### ZAMS_to_TCHeB_y-fixed.tar.gz
+#### TCHeB_to_AGB_y-fixed.tar.gz
+#### ZAMS_to_TCHeB_y-varied.tar.gz
+#### TCHeB_to_AGB_y-varied.tar.gz
+### sorted by whether a varied or static helium assumption was used. 
+
+
+### To use the smalled number of separate Zenodo DOIs possible, not all data grouped in the same way. The tar.gz files labeled with a string of the form "AGB_to_end_M1.XX_y-fixed.tar.gz" include all models having a mass beginning with 1 (1.00, 1.10, 1.20, etc) and adopting the fixed helium assumption. Files labeled in the form "AGB_to_end_M1.XX_y-varied.tar.gz" include the same, but using the helium-varied assumption. 
+
+###  Files labeled with a string of the form "AGB_to_end_M3.10_all.tar.gz" include both the fixed-helium and varied-helium tracks for all masses that start with 3 (3.00, 3.10, 3.20, etc).
+
+<!-- ### helium-fixed grid
 #### phase 1
 ZAMS_to_TCHeB_y-fixed.tar.gz
 
@@ -31,7 +48,7 @@ AGB_to_end_M5.XX_y-varied.tar.gz
 
 
 
-
+ -->
 # AGB_grid_visualizer
 visualization tools for grids of AGB models accompanying RHya paper
 

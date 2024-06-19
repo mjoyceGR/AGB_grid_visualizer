@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.8
 ####################################################
 #
 # Author: M Joyce
@@ -382,7 +382,7 @@ for fit_file in fit_files:
 	png_Z = []
 	#pngs_Nov9 = []
 	pngs = []
-	data_urls = []
+	#data_urls = []
 
 	png_ages=[]
 	png_pid = []
@@ -476,7 +476,7 @@ for fit_file in fit_files:
 		except ValueError:
 		 	png_pid.append('no match')	
 
-		data_urls.append(hist_url)
+		#data_urls.append(hist_url)
 
 
 	if make_image_lists:
@@ -490,7 +490,7 @@ for fit_file in fit_files:
 			      'png_pid'       : png_pid,	      
 			      'pngs' 	      : pngs,
 			      # 'pngs_Nov9' 	  : pngs_Nov9,
-			      'data_urls'     : data_urls
+			      # 'data_urls'     : data_urls
 	              }
 
 	image_df = pd.DataFrame(data=image_dict)
@@ -521,8 +521,8 @@ for fit_file in fit_files:
 	# img_dict applies only to frame4
 	#
 	####################################
-	custom_tap = TapTool(renderers=[frame4],callback=OpenURL(url="@data_urls") )
-	p.add_tools(custom_tap)
+	#custom_tap = TapTool(renderers=[frame4],callback=OpenURL(url="@data_urls") )
+	#p.add_tools(custom_tap)
 
 	#########################################
 	#
@@ -618,12 +618,13 @@ for fit_file in fit_files:
 					<h2> best-fitting pulse index = ${ds.data['png_pid'][indices[0]]} 
 					<h2> age of best pulse = ${ds.data['png_ages'][indices[0]]} Gyr
 					</h2>
-					<p><a href=${ds.data['data_urls'][indices[0]]}> click the point to download data for this file </a></p>
 
 	                `;
 
 	    }
 	""")
+
+#					<p><a href=${ds.data['data_urls'][indices[0]]}> click the point to download data for this file </a></p>
 
 	custom_hover = HoverTool(renderers=[frame4], callback=ht_callback)
 	p.add_tools(custom_hover)

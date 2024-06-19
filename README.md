@@ -76,10 +76,12 @@ See paper for more detail on the statistics.
  The file names correspond verbatim to the MESA output data files that were used to make the pulse spectra figures in the visualizer and are available at https://meridithjoyce.com/pulse_data/
 
 #### - names_of_pngs.dat
- a list of png files needed in the visualizer. The filenames correspond verbatim to the files used in the visualizer. The files are availble at https://meridithjoyce.com/images/AGB_grid/Nov28_2023/ and can be reproduced by running the `associated_plots.py` script in a directory containing the desired history data files 
+ a list of png files needed in the visualizer. The filenames correspond verbatim to the files used in the visualizer. 
+ <!-- The files are availble at https://meridithjoyce.com/images/AGB_grid/Nov28_2023/ and  -->
+This file can be reproduced by running the `associated_plots.py` script in a directory containing the desired history data files 
 
 #### - model_ages.dat
- crude average age in Myr taken by summing the model star's age at the onset of the TP-AGB phase and its age at the termination of the run and dividing by two.  
+ a crude average age in Myr taken by summing the model star's age at the onset of the TP-AGB phase and its age at the termination of the run and dividing by two.  
 
 
 #### - `associated_plots.py`

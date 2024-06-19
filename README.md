@@ -1,3 +1,7 @@
+# This is the repository associated to the paper "Stellar Evolution in Real Time II: R Hydrae and an Open-Source Grid of >3000 Seismic TP-AGB Models Computed with MESA"  
+## The most recent version of this paper will be available on arxiv on Friday, June 21st 2024. A pdf copy is included in this repository.
+## https://ui.adsabs.harvard.edu/abs/2024arXiv240116142J/abstract
+
 # The raw data data (model grids) associated to this project are available on Zenodo. 
 ## Due to the volume of data, the tracks are spread across four different Zenodo listings and several different .tar.gz files. Each Zenodo listing has its own DOI.
 
@@ -59,8 +63,8 @@ visualization tools for grids of AGB models accompanying RHya paper
 ## includes:
 #### - `bokeh_heatmaps.py`
 which loads the visualization tool in the browser 
-<!-- #### - four "best_fits" data files
- containing the best fit statistics as a function of mass, metallicity, and mode ID assumption (FM vs O1), computed according to different assumptions regarding agreement with period, luminosity, effective temperature, and radius.  -->
+#### - three folders of realizations: yi-fixed_realizations, yi-varied_realizations, non-linear_realizations
+`all_best_fits*.dat` data files contain the best fit statistics as a function of mass, metallicity, and mode ID assumption (FM vs O1), computed according to different assumptions regarding agreement with period, luminosity, effective temperature, and radius. For example, the file `all_best_fits_FM_Feb20_nonlin_yi_hardness75.dat` located in `non-linear_realizations` will show a realization of the fundamental mode (FM) computed using the non-linear (nonlin) scaling relations on MESA models that have a fixed helium assumption and fit the pulse morphology according to a hardness parameter of 75. 
 	
 <!--  The files with "STRICT" in the prefix correspond to an assumption of hard limits on L, Teff, and R in the initial agreement domain, also referred to as a "top-hat" prior on the classical observations. The maps available for each of these files show the weigthed root-mean-square error (w-rmse) statistc based on agreement between the theoretical and observed period measurements only. 
 	
